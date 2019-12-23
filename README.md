@@ -9,3 +9,5 @@
 ### Not yet added
 + MB: Gigabyte B360 M Aorus Pro | CPU: Core i5-9400 | GPU: GeForce GTX 1060 3GB | RAM: 16GB HYPERX 3200MHz | HD: 1TB - 500GB | OS: High Sierra
 + MB: Acer Aspire 4741 332G25Mn | CPU: Core i3-350M | GPU: Intel HD Graphics Arrandale | RAM: 4GB DDR3 1066MHz | SSD: WD 240GB | OS: High Sierra
+
+Note: The EFI folder and config.plist are just provided for reference for those who have similar hardware. Please assemble your own EFI folder according to the [Opencore Vanilla Desktop Guide](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/). In the config.plist "Serial Number", "Board Serial Number" and "SmUUID" which are unique SMBIOS credentials have been blanked, because they should not be revealed in public. They are unique for each system and mandatory for activation of iMessage and FaceTime.
