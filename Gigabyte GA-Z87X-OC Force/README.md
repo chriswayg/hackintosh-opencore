@@ -3,7 +3,7 @@
 Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/) and the OpenCore Configuration.pdf - The parts I configured different from the Guide are mostly noted below.
 
 ### Specs
-* CPU: Intel Core i7-4770K @ 3.50GHz 4-Core Processor
+* CPU: Intel Core i7-4770K @ 3.50GHz 4-Core Processor (Haswell)
 * MB: Gigabyte GA-Z87X-OC Force
 * RAM: 4x8GB G.SKILL Ripjaws X Series DDR3 1600
 * SSD: Crucial M550 256GB 2.5"
@@ -17,15 +17,6 @@ Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.g
 - Sleep (somewhat)
 - upgrading to 10.14.6 and security updates ran smoothly
 - press Option key to see OpenCore boot menu
-
-## Download OpenCore & Tools
-* [acidanthera/OpenCorePkg: OpenCore front end](https://github.com/acidanthera/OpenCorePkg)
-* [acidanthera/AppleSupportPkg Drivers · GitHub](https://github.com/acidanthera/AppleSupportPkg/releases)
-
-* [Hackintool - InsanelyMac Forum](https://www.insanelymac.com/forum/topic/335018-hackintool-v283/)
-	* [Download Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)
-	* [headkaze/Hackintool: The Swiss army knife of vanilla Hackintoshing](https://github.com/headkaze/Hackintool)
-* [PlistEdit Pro – Advanced Mac plist editor](https://www.fatcatsoftware.com/plisteditpro/)
 
 ## BIOS settings
 ### Disable
@@ -42,20 +33,11 @@ Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.g
 ## Mount EFI
 Used Hackintool to mount EFI
 
-## Download Kexts & UEFI Shell
-* [acidanthera/Lilu · GitHub](https://github.com/acidanthera/Lilu/releases)
-* [acidanthera/VirtualSMC · GitHub](https://github.com/acidanthera/VirtualSMC/releases)
-* [acidanthera/WhateverGreen · GitHub](https://github.com/acidanthera/WhateverGreen/releases)
-* [acidanthera/IntelMausi · GitHub](https://github.com/acidanthera/IntelMausi/releases)
-* [acidanthera/AppleALC: Native macOS HD audio](https://github.com/acidanthera/AppleALC)
-* [RehabMan/USB-Inject-All: Kext to inject all USB ports](https://github.com/RehabMan/OS-X-USB-Inject-All)
-	* [Download USBInjectAll 0.7.1 — Bitbucket](https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/)
-* [acidanthera/OpenCoreShell · GitHub](https://github.com/acidanthera/OpenCoreShell/releases)
 * Install `AirPortAtheros40` for TP-LINK TL-WDN4800 from
 	* [Atheros installer for macOS Mojave and Catalina - LAN and Wireless - InsanelyMac Forum](https://www.insanelymac.com/forum/files/file/956-atheros-installer-for-macos-mojave-and-catalina/)
 	* or with Hackintool (Tools -> Atheros)
 
-## Edit config.plist (Haswell section)
+## Edit config.plist
 ### Device Properties
 * 0x04120004 - this is used when the iGPU is only used for compute tasks and doesn't drive a display
 ### Kernel
@@ -78,10 +60,3 @@ Used Hackintool to mount EFI
 -uia_exclude_hs uia_include=HS11,HS12
 ```
 * installed `USBPorts.kext`
-
-## Upgrading to OpenCore-X.Y.Z-RELEASE
-* keep a backup on a USB-Stick
-* replace `BOOTx64.efi` and `OpenCore.efi`
-* replace drivers from updated AppleSupport `ApfsDriverLoader.efi`, `FwRuntimeServices.efi`, `VBoxHfs.efi`
-* check for updated kexts on [Acidanthera · GitHub](https://github.com/acidanthera) or with the Hackintool (Installed Kexts - Download)
-* read OpenCore Docs Differences.pdf and apply in config.plist, as needed

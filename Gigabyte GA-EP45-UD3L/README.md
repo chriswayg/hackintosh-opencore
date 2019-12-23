@@ -18,15 +18,6 @@ Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.g
 - Sleep does not work
 - press Option key to see OpenCore boot menu
 
-## Download OpenCore & Tools
-* [acidanthera/OpenCorePkg: OpenCore front end](https://github.com/acidanthera/OpenCorePkg)
-* [acidanthera/AppleSupportPkg Drivers · GitHub](https://github.com/acidanthera/AppleSupportPkg/releases)
-
-* [Hackintool - InsanelyMac Forum](https://www.insanelymac.com/forum/topic/335018-hackintool-v283/)
-	* [Download Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)
-	* [headkaze/Hackintool: The Swiss army knife of vanilla Hackintoshing](https://github.com/headkaze/Hackintool)
-* [PlistEdit Pro – Advanced Mac plist editor](https://www.fatcatsoftware.com/plisteditpro/)
-
 ## BIOS settings
 
 ### Disable
@@ -40,16 +31,6 @@ Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.g
 
 ## Mount EFI
 Used Hackintool to mount EFI
-
-## Download Kexts & UEFI Shell
-* [acidanthera/Lilu · GitHub](https://github.com/acidanthera/Lilu/releases)
-* [acidanthera/VirtualSMC · GitHub](https://github.com/acidanthera/VirtualSMC/releases)
-* [acidanthera/WhateverGreen · GitHub](https://github.com/acidanthera/WhateverGreen/releases)
-* [acidanthera/AppleALC: Native macOS HD audio](https://github.com/acidanthera/AppleALC)
-* [RehabMan/USB-Inject-All: Kext to inject all USB ports](https://github.com/RehabMan/OS-X-USB-Inject-All)
-* [Download USBInjectAll 0.7.1 — Bitbucket](https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/)
-* [acidanthera/OpenCoreShell · GitHub](https://github.com/acidanthera/OpenCoreShell/releases)
-* [acidanthera/RTCMemoryFixup: open source kernel extension providing a way to emulate some offsets in your CMOS (RTC) memory](https://github.com/acidanthera/RTCMemoryFixup)
 
 ## Edit config.plist
 * used Ivy Bridge section of Opencore Vanilla Desktop Guide as there is none for Yorkfield
@@ -82,10 +63,3 @@ The OpenCore  RTC fix did not work, use RTCMemoryFixup instead.
 
 ## Legacy Install
 * Use OpenCore BootInstall.command to install DuetPkg to drive
-
-## Upgrading to OpenCore-X.Y.Z-RELEASE
-* keep a backup on a USB-Stick configured with debug logging
-* replace `BOOTx64.efi` and `OpenCore.efi`
-* replace drivers from updated AppleSupport `ApfsDriverLoader.efi`, `FwRuntimeServices.efi`, `VBoxHfs.efi`
-* check for updated kexts on [Acidanthera · GitHub](https://github.com/acidanthera) or with the Hackintool (Installed Kexts - Download)
-* read OpenCore Docs Differences.pdf and apply in config.plist, as needed

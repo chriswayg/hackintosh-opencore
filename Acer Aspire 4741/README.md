@@ -5,7 +5,7 @@ Generally followed the  [Opencore Vanilla Desktop Guide](https://khronokernel-2.
 * CPU: Intel Core i3 330M 2.13 GHz dual-core (Westmere/Arrandale)
 * MB: Acer Aspire 4741-332G25Mn (2010)
 * RAM: 4GB 1066 MHz DDR3
-* SSD: 240GB 2.5"
+* SSD: WD 240GB 2.5"
 * GPU: Intel HD Graphics
 * WIFI: check
 * OS: High Sierra

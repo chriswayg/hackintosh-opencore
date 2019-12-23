@@ -20,12 +20,6 @@ Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.g
 - press Option key to see OpenCore boot menu
 - Mouse is partially unresponive for 20 seconds on login screen
 
-## Download Tools
-* [Hackintool - InsanelyMac Forum](https://www.insanelymac.com/forum/topic/335018-hackintool-v283/)
-	* [Download Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)
-	* [headkaze/Hackintool: The Swiss army knife of vanilla Hackintoshing](https://github.com/headkaze/Hackintool)
-* [PlistEdit Pro – Advanced Mac plist editor](https://www.fatcatsoftware.com/plisteditpro/)
-
 ## BIOS settings
 
 ### Disable
@@ -76,8 +70,3 @@ Used Hackintool to mount EFI
 
 * Install `AirPortAtheros40` for TP-LINK TL-WDN4800
 	* with Hackintool (Tools -> Atheros)
-
-## Upgrading to OpenCore-X.Y.Z-RELEASE
-* keep a backup on a USB-Stick
-* check OpenCore Docs Differences.pdf and apply in config.plist, as needed
-* Use OC-Tool to build the latest version from source based on config.plist
