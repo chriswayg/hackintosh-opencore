@@ -778,6 +778,8 @@
 			<true/>
 			<key>PowerTimeoutKernelPanic</key>
 			<true/>
+			<key>ThirdPartyDrives</key>
+			<false/>
 			<key>ThirdPartyTrim</key>
 			<true/>
 			<key>XhciPortLimit</key>
@@ -950,145 +952,22 @@
 	<dict>
 		<key>Automatic</key>
 		<true/>
-		<key>DataHub</key>
-		<dict>
-			<key>ARTFrequency</key>
-			<integer>0</integer>
-			<key>BoardProduct</key>
-			<string>Mac-F221BEC8</string>
-			<key>BoardRevision</key>
-			<data>
-			AQ==
-			</data>
-			<key>DevicePathsSupported</key>
-			<integer>1</integer>
-			<key>FSBFrequency</key>
-			<integer>0</integer>
-			<key>InitialTSC</key>
-			<integer>0</integer>
-			<key>PlatformName</key>
-			<string>platform</string>
-			<key>SmcBranch</key>
-			<data>
-			AAAAAAAAAAA=
-			</data>
-			<key>SmcPlatform</key>
-			<data>
-			AAAAAAAAAAA=
-			</data>
-			<key>SmcRevision</key>
-			<data>
-			ATkPAAAF
-			</data>
-			<key>StartupPowerEvents</key>
-			<integer>0</integer>
-			<key>SystemProductName</key>
-			<string>MacPro5,1</string>
-			<key>SystemSerialNumber</key>
-			<string>W0000000001</string>
-			<key>SystemUUID</key>
-			<string>00000000-0000-0000-0000-000000000000</string>
-		</dict>
 		<key>Generic</key>
 		<dict>
 			<key>MLB</key>
-			<string>C02140302D5DMT31M</string>
+			<string></string>
 			<key>ROM</key>
 			<data>
-			SRo8lvBi
+			ESIzAAAA
 			</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
 			<string>MacBookPro6,2</string>
 			<key>SystemSerialNumber</key>
-			<string>CK042RR2AGW</string>
+			<string></string>
 			<key>SystemUUID</key>
-			<string>7C55BCE6-7FBF-468E-872C-CA38FB96F062</string>
-		</dict>
-		<key>PlatformNVRAM</key>
-		<dict>
-			<key>BID</key>
-			<string>Mac-F221BEC8</string>
-			<key>FirmwareFeatures</key>
-			<data>
-			N+EP6AAAAAA=
-			</data>
-			<key>FirmwareFeaturesMask</key>
-			<data>
-			P/8f/wAAAAA=
-			</data>
-			<key>MLB</key>
-			<string>M000000000001</string>
-			<key>ROM</key>
-			<data>
-			ESIzAAAA
-			</data>
-		</dict>
-		<key>SMBIOS</key>
-		<dict>
-			<key>BIOSReleaseDate</key>
-			<string>04/12/2019</string>
-			<key>BIOSVendor</key>
 			<string></string>
-			<key>BIOSVersion</key>
-			<string>144.0.0.0.0</string>
-			<key>BoardAssetTag</key>
-			<string></string>
-			<key>BoardLocationInChassis</key>
-			<string>Part Component</string>
-			<key>BoardManufacturer</key>
-			<string></string>
-			<key>BoardProduct</key>
-			<string>Mac-F221BEC8</string>
-			<key>BoardSerialNumber</key>
-			<string>M000000000001</string>
-			<key>BoardType</key>
-			<integer>11</integer>
-			<key>BoardVersion</key>
-			<string>MacPro5,1</string>
-			<key>ChassisAssetTag</key>
-			<string></string>
-			<key>ChassisManufacturer</key>
-			<string></string>
-			<key>ChassisSerialNumber</key>
-			<string>W0000000001</string>
-			<key>ChassisType</key>
-			<integer>7</integer>
-			<key>ChassisVersion</key>
-			<string>Mac-F221BEC8</string>
-			<key>FirmwareFeatures</key>
-			<data>
-			N+EP6AAAAAA=
-			</data>
-			<key>FirmwareFeaturesMask</key>
-			<data>
-			P/8f/wAAAAA=
-			</data>
-			<key>MemoryFormFactor</key>
-			<integer>9</integer>
-			<key>PlatformFeature</key>
-			<integer>0</integer>
-			<key>ProcessorType</key>
-			<integer>0</integer>
-			<key>SmcVersion</key>
-			<data>
-			AAAAAAAAAAAAAAAAAAAAAA==
-			</data>
-			<key>SystemFamily</key>
-			<string>MacPro</string>
-			<key>SystemManufacturer</key>
-			<string></string>
-			<key>SystemProductName</key>
-			<string>MacPro5,1</string>
-			<key>SystemSKUNumber</key>
-			<string>Mac-F221BEC8</string>
-			<key>SystemSerialNumber</key>
-			<string>W0000000001</string>
-			<key>SystemUUID</key>
-			<string>00000000-0000-0000-0000-000000000000</string>
-			<key>SystemVersion</key>
-			<string>1.1</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1173,10 +1052,14 @@
 			<false/>
 			<key>ReplaceTabWithSpace</key>
 			<false/>
+			<key>RequestBootVarFallback</key>
+			<false/>
 			<key>RequestBootVarRouting</key>
 			<true/>
 			<key>SanitiseClearScreen</key>
 			<true/>
+			<key>UnblockFsConnect</key>
+			<false/>
 		</dict>
 	</dict>
 </dict>
