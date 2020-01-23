@@ -3,7 +3,7 @@
 Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/) and the OpenCore Configuration.pdf - The parts I configured different from the Guide are mostly noted below.
 
 ### Specs
-* CPU: Intel Core 2 Quad (Yorkfield) Q9400 @ 2.66 GHz (OC up to 3.52 Ghz)
+* CPU: Intel Core 2 Quad (Yorkfield/Wolfdale) Q9400 @ 2.66 GHz (OC up to 3.52 Ghz)
 * MB: GA-EP45-UD3L LGA 775 (rev. 1.1 Bios F7)
 * RAM: 4 x 2GB G.SKILL DDR2 1333 MHz
 * HDD: 2 x 3TB Seagate Barracuda ST3000DM001
