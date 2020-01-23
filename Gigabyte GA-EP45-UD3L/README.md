@@ -8,7 +8,7 @@ Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.g
 * RAM: 4 x 2GB G.SKILL DDR2 1333 MHz
 * HDD: 2 x 3TB Seagate Barracuda ST3000DM001
 * GPU: ASUS GeForce GTX 660Ti (Nvidia GK104) with dual 1080p monitors
-* macOS High Sierra Version 10.13.6 (Build 17G9016)
+* macOS High Sierra Version 10.13.6 (Build 17G9016) 
 
 ### Working
 - Audio, Video, Ethernet, USB, NVRAM
@@ -63,3 +63,7 @@ The OpenCore  RTC fix did not work, use RTCMemoryFixup instead.
 
 ## Legacy Install
 * Use OpenCore BootInstall.command to install DuetPkg to drive
+
+### Upgrades
+- Mojave should be possible in the future with a different GPU. [(Example here)](https://www.reddit.com/r/hackintosh/comments/aca8uu/success_gap35ds3r_core2_q9450_gtx_760/)
+
