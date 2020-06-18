@@ -9,6 +9,7 @@ Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.g
 * HDD: 2 x 3TB Seagate Barracuda ST3000DM001
 * GPU: ASUS GeForce GTX 660Ti (Nvidia GK104) with dual 1080p monitors
 * macOS High Sierra Version 10.13.6 (Build 17G9016) 
+* OpenCore 0.5.4
 
 ### Working
 - Audio, Video, Ethernet, USB, NVRAM
