@@ -14,11 +14,12 @@
 * GPU: Sapphire Radeon Toxic R9 280X with dual 1080p monitors
 * Ethernet: Intel I219-V
 * WIFI: Fenvi FV-T919 (Broadcom BCM94360CD)
+* Audio: Realtek ALC892
 * OpenCore 0.7.7
 
 ### Working
 
-- Audio, Video, Ethernet, NVRAM, Wifi
+- Audio, Video, Ethernet, NVRAM, Wifi, Bluetooth
 - Messages, iCloud
 - All USB2 & USB3 ports
 - Sleep
