@@ -1,18 +1,22 @@
 # Hackintosh on Gigabyte Gigabyte B360 M Aorus Pro
 
 ## Installed Monterey 12.1
+
 - Followed the [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (Guide updated to 0.7.5 at the time and referenced the OpenCore `Configuration.pdf` for version 0.7.7).
-- Relevant options chosen based on this documentation and the hardware are mostly noted below.
+- Relevant options chosen based on the applicable hardware are mostly noted below.
 
 ### Specs
+
 * CPU: Intel Core i5-9400 CPU @ 2.90GHz 6-Core (Coffee Lake)
 * MB: Gigabyte B360 M Aorus Pro
 * RAM: 16GB HyperX Fury 3200MHz DDR4
 * SSD: Kingston 480GB A400 SATA 2.5"
 * GPU: Sapphire Radeon Toxic R9 280X with dual 1080p monitors
 * WIFI: Fenvi FV-T919 (Broadcom BCM94360CD)
+* OpenCore 0.7.7
 
 ### Working
+
 - Audio, Video, Ethernet, NVRAM, Wifi
 - Messages, iCloud
 - All USB2 & USB3 ports
@@ -22,14 +26,16 @@
 ## BIOS settings
 
 ### Disable
+
 - [x] Fast Boot
 - [x] Secure Boot
 - [x] Serial/COM Port
 - [x] VT-d (can be enabled if you set DisableIoMapper to YES)
 - [x] CSM
 - [ ] CFG Lock (not available in BIOS, must enable `AppleXcpmCfgLock`)
-	 
+
 ### Enable
+
 - [ ] VT-x
 - [x] Above 4G decoding
 - [ ] Hyper-Threading
@@ -39,11 +45,11 @@
 - [ ] DVMT Pre-Allocated(iGPU Memory): 64MB
 - [x] SATA Mode: AHCI
 
-## OpenCore Auxiliary Tools (OCAT)
-Used [GitHub: OpenCore Auxiliary Tools](https://github.com/ic005k/QtOpenCoreConfig) to create initial config, while cross checking each setting with *Dortania's OpenCore Install Guide* 
+## Create EFI using OpenCore Auxiliary Tools
+
+Used [GitHub: OpenCore Auxiliary Tools (OCAT)](https://github.com/ic005k/QtOpenCoreConfig) to create initial config, while cross checking each setting with *Dortania's OpenCore Install Guide* 
 
 - Initialize EFI with Database > `Desktop_8th-9thGen_Coffee_Lake_iMac19,1.plist`
-
 
 ## Edit config.plist
 
@@ -52,22 +58,26 @@ Used [GitHub: OpenCore Auxiliary Tools](https://github.com/ic005k/QtOpenCoreConf
 - `boot-args -v debug=0x100 debug=0x100 alcid=1` for debugging and audio
 
 ### Device Properties
+
 - `AAPL,ig-platform-id 0300913E` the iGPU is only used for compute tasks and doesn't drive a display
 
 ### Kernel - Quirks
+
 - `AppleXcpmCfgLock Yes`
 
-### Misc - Security 
+### Misc - Security
+
 - `ScanPolicy 983299`
 
 ### Platform Info
 
 [Platform Info](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo)
 
-- For setting up the SMBIOS info, instead of using the GenSMBIOS application, just i used the built-in Generator in OCAT.
-- Click Generate once (near the SystemProductName field)
+- For setting up the SMBIOS info, instead of using the *GenSMBIOS* application, I used the built-in SMBIOS generator in OCAT.
+- Click *Generate* once (near the SystemProductName field)
 
 ### UEFI - APFS
+
 - `MinDate -1`
 - `MinVersion -1`
 
@@ -84,19 +94,67 @@ mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubuse
 ## Post-install
 
 ### Map USB Ports using USBMap
+
 Python script for mapping USB ports in macOS and creating a custom injector kext.
 
-https://github.com/corpnewt/USBMap
+[GitHub - corpnewt/USBMap: Python script for mapping USB ports in macOS and creating a custom injector kext.](https://github.com/corpnewt/USBMap)
 
+- Working USB Config:
+
+```
+######################################################
+# Discover USB Ports
+######################################################
+----- XHC@14 Controller -----
+
+1. HS03 | AppleUSB20XHCIPort |  3 (03000000) | 14100000 | Type 0
+   GigaFrontRight_asUSB2
+2. HS04 | AppleUSB20XHCIPort |  4 (04000000) | 14200000 | Type 0
+   GigaFrontLeft_asUSB2
+3. HS05 | AppleUSB20XHCIPort |  5 (05000000) | 14300000 | Type 0
+   RightLowUSB3_asUSB2
+4. HS06 | AppleUSB20XHCIPort |  6 (06000000) | 14400000 | Type 0
+   RightUpUSB3_asUSB2
+5. HS07 | AppleUSB20XHCIPort |  7 (07000000) | 14500000 | Type 0
+   UpLeftUSB2
+6. HS08 | AppleUSB20XHCIPort |  8 (08000000) | 14600000 | Type 0
+   LowLeftUSB2
+   - USB Receiver
+7. HS09 | AppleUSB20XHCIPort |  9 (09000000) | 14700000 | Type 0
+   FrontRight_USB2
+8. HS10 | AppleUSB20XHCIPort | 10 (0a000000) | 14800000 | Type 0
+   FrontLeft_USB2
+   - USB Combo Keyboard
+9. HS14 | AppleUSB20XHCIPort | 14 (0e000000) | 14900000 | Type 255
+   InternalBT_USB2
+   - BRCM20702 Hub
+     - AppleUSB20InternalHub
+       - Bluetooth USB Host Controller
+         - BroadcomBluetoothHostControllerUSBTransport
+10. SS01 | AppleUSB30XHCIPort | 17 (11000000) | 14a00000 | Type 3
+   UpMiddleUSB3.1
+11. SS02 | AppleUSB30XHCIPort | 18 (12000000) | 14b00000 | Type 9
+   LowMiddleUSB-C
+12. SS03 | AppleUSB30XHCIPort | 19 (13000000) | 14c00000 | Type 3
+   FrontRight_USB3
+13. SS04 | AppleUSB30XHCIPort | 20 (14000000) | 14d00000 | Type 3
+   FrontLeft_USB3
+14. SS05 | AppleUSB30XHCIPort | 21 (15000000) | 14e00000 | Type 3
+   LowRightUSB3
+15. SS06 | AppleUSB30XHCIPort | 22 (16000000) | 14f00000 | Type 3
+   UpRightUSB3
+```
+
+- Added `USBMap.kext`
 
 ### Debugging
 
-- Initially with all recommended debugging settings enabled, which were lowered after all is working
+- Initially configured with all recommended debugging settings enabled, which were lowered after all is working.
 
 ### Multi-Boot
 
-- this configuration also successfully boots my previous Mojave 10.14.6 installation using the previously used Serial for AppleID consistency
+- This configuration also successfully boots my Mojave 10.14.6 installation using the previously used Serial for AppleID consistency.
 
-### SMBIOS on Github 
+### SMBIOS on Github
 
 In the config.plist my personal "Serial Number", "Board Serial Number" and "SmUUID" which are unique SMBIOS credentials have been changed and randomized newly before uploading, because they should not be revealed in public. They are unique for each system and are mandatory for activation of iMessage and FaceTime.
