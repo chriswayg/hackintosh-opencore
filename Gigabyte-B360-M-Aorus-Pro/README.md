@@ -1,4 +1,4 @@
-# Hackintosh on Gigabyte Gigabyte B360 M Aorus Pro
+# Hackintosh on Gigabyte B360 M Aorus Pro
 
 ![](Monterey_Hackintosh_B360M_Screenshot.png)
 
