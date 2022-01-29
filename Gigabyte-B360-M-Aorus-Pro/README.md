@@ -49,6 +49,7 @@
 
 Used [GitHub: OpenCore Auxiliary Tools (OCAT)](https://github.com/ic005k/QtOpenCoreConfig) to create initial config, while cross checking each setting with *Dortania's OpenCore Install Guide* 
 
+- Steps to take: [Generate EFI Folders using OpenCore Auxiliary Tools](https://github.com/5T33Z0/OC-Little-Translated/tree/main/F_Desktop_EFIs#generate-efi-folders-using-opencore-auxiliary-tools)
 - Initialize EFI with Database > `Desktop_8th-9thGen_Coffee_Lake_iMac19,1.plist`
 
 ## Edit config.plist
@@ -153,8 +154,4 @@ Python script for mapping USB ports in macOS and creating a custom injector kext
 
 ### Multi-Boot
 
-- This configuration also successfully boots my Mojave 10.14.6 installation using the previously used Serial for AppleID consistency.
-
-### SMBIOS on Github
-
-In the config.plist my personal "Serial Number", "Board Serial Number" and "SmUUID" which are unique SMBIOS credentials have been changed and randomized newly before uploading, because they should not be revealed in public. They are unique for each system and are mandatory for activation of iMessage and FaceTime.
+- This configuration also successfully boots my Mojave 10.14.6 installation using the previously used serial for AppleID consistency.

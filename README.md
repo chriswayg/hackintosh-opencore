@@ -56,7 +56,7 @@
 
 * keep a working EFI backup on a USB-Stick
 * Refer to [OpenCorePkg/Differences.pdf at master · acidanthera/OpenCorePkg · GitHub](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Differences/Differences.pdf) of the most recent release
-* Use *OpenCore Auxiliary Tools (OCAT)* for semi-automated upgrades
+* Use *OpenCore Auxiliary Tools (OCAT)* for semi-automated upgrades: [Updating OpenCore and Kexts with OCAT](https://github.com/5T33Z0/OC-Little-Translated/blob/main/D_Updating_OpenCore/README.md#updating-opencore-and-kexts-with-ocat)
 
 ### Notes
 
