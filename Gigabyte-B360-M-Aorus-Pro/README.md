@@ -1,5 +1,7 @@
 # Hackintosh on Gigabyte Gigabyte B360 M Aorus Pro
 
+![](Monterey_Hackintosh_B360M_Screenshot.png)
+
 ## Installed Monterey 12.1
 
 - Followed the [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (Guide updated to 0.7.5 at the time and referenced the OpenCore `Configuration.pdf` for version 0.7.7).
