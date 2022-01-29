@@ -12,6 +12,7 @@
 * RAM: 16GB HyperX Fury 3200MHz DDR4
 * SSD: Kingston 480GB A400 SATA 2.5"
 * GPU: Sapphire Radeon Toxic R9 280X with dual 1080p monitors
+* Ethernet: Intel I219-V
 * WIFI: Fenvi FV-T919 (Broadcom BCM94360CD)
 * OpenCore 0.7.7
 
@@ -68,6 +69,8 @@ Used [GitHub: OpenCore Auxiliary Tools (OCAT)](https://github.com/ic005k/QtOpenC
 
 ### Misc - Security
 
+Hide EFI and external in boot menu
+
 - `ScanPolicy 983299`
 
 ### Platform Info
@@ -78,6 +81,8 @@ Used [GitHub: OpenCore Auxiliary Tools (OCAT)](https://github.com/ic005k/QtOpenC
 - Click *Generate* once (near the SystemProductName field)
 
 ### UEFI - APFS
+
+For multi-booting with Mojave
 
 - `MinDate -1`
 - `MinVersion -1`
