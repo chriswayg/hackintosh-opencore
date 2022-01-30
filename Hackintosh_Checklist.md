@@ -149,7 +149,7 @@ additional checks relevant for Notebooks including MacBooks with Legacy Patchers
 
 - [ ] Showing percentage
 - [ ] Showing capacity/health
-  * coconutBattery
+  * *coconutBattery*
 - [ ] Charge plug/unplug detected
 
 ### Trackpad
@@ -167,8 +167,8 @@ additional checks relevant for Notebooks including MacBooks with Legacy Patchers
 * Keys can be pressed after power on or when OpenCore Picker is shown.
   * CMD+V — verbose mode.
   * CMD+S — single user mode.
-  - CMD+R — boot into macOS recovery partition.
-  - CMD+OPT+P+R — reset NVRAM. 
+  * CMD+R — boot into macOS recovery partition.
+  * CMD+OPT+P+R — reset NVRAM. 
   * OPT or ESC or Zero — at startup to show OpenCore Picker
   * CTRL+ENTER at highlighted boot picker to set default boot option
 
