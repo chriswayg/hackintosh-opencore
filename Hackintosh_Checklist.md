@@ -64,7 +64,7 @@
 
 ### Disk
 
-- Test with *Blackmagic Disk Speedtest*
+Test with *Blackmagic Disk Speedtest*
 
 - [ ] NVMe SSD
 - [ ] SATA SSD
@@ -78,9 +78,9 @@
 
 ### USB
 
-- Use *USBMap*
+Use *USBMap*
 
-- Test external drives with *Blackmagic Disk Speedtest*
+Test external drives with *Blackmagic Disk Speedtest*
 
 - [ ] USB 2 ports
 - [ ] USB 2 on USB 3 ports
