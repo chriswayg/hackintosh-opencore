@@ -25,17 +25,17 @@
 ### Graphics Acceleration
 
 - [ ] dGPU dedicated GPU
-  * In Terminal: `gfxutil -f GFX0` or check in IORegistryExplorer
+  * In *Terminal*: `gfxutil -f GFX0` or check in IORegistryExplorer
 - [ ] iGPU internal GPU
-  * In Terminal: `gfxutil -f IGPU` or check in IORegistryExplorer
+  * In *Terminal*: `gfxutil -f IGPU` or check in IORegistryExplorer
 - [ ] QE/CI (full acceleration requires both Quartz Extreme and Core Image)
   - Check for transparent menu bar and fast smooth UI.
 - [ ] VDA (Video Decode Acceleration framework)
-  - Hackintool -> System -> System -> VDA Decoder (should show 'fully supported')
+  - *Hackintool* -> System -> System -> VDA Decoder (should show 'fully supported')
 - [ ] Metal
-  - System Information -> Graphics/Displays -> Metal: Supported
-  - GLView
-  - Geekbench -> Compute -> Metal
+  - *System Information* -> Graphics/Displays -> Metal: Supported
+  - *GLView*
+  - *Geekbench* -> Compute -> Metal
 
 ### Audio
 
@@ -48,7 +48,7 @@
 ### Sleep & Power
 
 - [ ] Manual Sleep (Apple menu -> Sleep)
-- [ ] Auto Sleep (System preferences -> Energy Saver)
+- [ ] Auto Sleep (*System Preferences* -> Energy Saver)
 - [ ] Wake by keyboard
 - [ ] Wake by mouse/trackpad
 - [ ] Sleep by [Press and hold power button for 1.5 seconds](https://support.apple.com/en-us/HT201236)
@@ -58,9 +58,9 @@
 ### CPU
 
 - [ ] CPU Power Management [Optimizing Power Management](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#optimizing-power-management)
-  * Check with IORegistryExplorer
+  * Check with *IORegistryExplorer*
 - [ ] Temperatures and stability with 100% CPU
-  * Use Prime95 Torture Test
+  * Use *Prime95* Torture Test
 
 ### Disk
 
@@ -70,12 +70,12 @@
 
 - [ ] SATA SSD 
 
-- [ ] TRIM support (System Information -> SATA -> SSD drive)
+- [ ] TRIM support (*System Information* -> SATA -> SSD drive)
 
 ### Keyboard
 
 - [ ] Option/Command correctly mapped in macOS
-  * For PC Keyboards swap in: System preferences -> Keyboard -> Modifier Keys
+  * For PC Keyboards swap in: *System Preferences* -> Keyboard -> Modifier Keys
 - [ ] Fn keys working
 
 ### USB
@@ -105,7 +105,7 @@
 
 ### Ethernet
 
-- [ ] Gigabit LAN (System preferences -> Network -> Ethernet -> Advanced -> Hardware -> Speed should be 1000baseT)
+- [ ] Gigabit LAN (*System Preferences*-> Network -> Ethernet -> Advanced -> Hardware -> Speed should be 1000baseT)
 - [ ] 2.5GBase-T (especially on Comet Lake and above boards)
 - [ ] 10GBase-T (Aquantia with updated firmware)
 
