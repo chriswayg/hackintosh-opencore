@@ -67,9 +67,7 @@
 - Test with *Blackmagic Disk Speedtest*
 
 - [ ] NVMe SSD
-
 - [ ] SATA SSD 
-
 - [ ] TRIM support (*System Information* -> SATA -> SSD drive)
 
 ### Keyboard
@@ -85,17 +83,11 @@
 - Test external drives with *Blackmagic Disk Speedtest*
 
 - [ ] USB 2 ports
-
 - [ ] USB 2 on USB 3 ports
-
 - [ ] USB 3 and 3.1 ports (check transfer speed during copy)
-
 - [ ] USB C ports
-
 - [ ] SD Card Reader 
-
 - [ ] Camera (Photo Booth, Facetime, Zoom)
-
 - [ ] Fingerprint reader
 
 ### ThunderBolt
