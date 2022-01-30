@@ -4,12 +4,12 @@
 
 ### OpenCore Booting
 
-- [ ] NVRAM working [Verifying if you have working NVRAM](https://dortania.github.io/OpenCore-Post-Install/misc/nvram.html#verifying-if-you-have-working-nvram)
-  * Apple -> System Preferences -> Startup Disk uses NVRAM
 - [ ] Correct OS choices shown in OC Menu/GUI
 - [ ] Keyboard shortcuts working (see details below)
   * CMD+V — verbose mode. 
-- [ ] Security (especially SIP) [Menu Bar SIP Detector](https://github.com/ITzTravelInTime/MenuBarSIPDetector) 
+- [ ] NVRAM working [Verifying if you have working NVRAM](https://dortania.github.io/OpenCore-Post-Install/misc/nvram.html#verifying-if-you-have-working-nvram)
+  - Apple -> System Preferences -> Startup Disk uses NVRAM.
+- [ ] Security (especially SIP) use [Menu Bar SIP Detector](https://github.com/ITzTravelInTime/MenuBarSIPDetector) 
 - [ ] FileVault
 - [ ] Multibooting
 
@@ -25,11 +25,11 @@
 ### Graphics Acceleration
 
 - [ ] dGPU dedicated GPU
-  * `gfxutil -f GFX0` or check in IORegistryExplorer
+  * In Terminal: `gfxutil -f GFX0` or check in IORegistryExplorer
 - [ ] iGPU internal GPU
-  * `gfxutil -f IGPU` or check in IORegistryExplorer
+  * In Terminal: `gfxutil -f IGPU` or check in IORegistryExplorer
 - [ ] QE/CI (full acceleration requires both Quartz Extreme and Core Image)
-  - Transparent menu bar and fast smooth UI.
+  - Check for transparent menu bar and fast smooth UI.
 - [ ] VDA (Video Decode Acceleration framework)
   - Hackintool -> System -> System -> VDA Decoder (should show 'fully supported')
 - [ ] Metal
@@ -58,16 +58,18 @@
 ### CPU
 
 - [ ] CPU Power Management [Optimizing Power Management](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#optimizing-power-management)
-  * IORegistryExplorer
+  * Check with IORegistryExplorer
 - [ ] Temperatures and stability with 100% CPU
-  * Prime95 Torture Test
+  * Use Prime95 Torture Test
 
 ### Disk
 
 - Test with *Blackmagic Disk Speedtest*
 
 - [ ] NVMe SSD
+
 - [ ] SATA SSD 
+
 - [ ] TRIM support (System Information -> SATA -> SSD drive)
 
 ### Keyboard
@@ -78,15 +80,22 @@
 
 ### USB
 
-- USBMap
+- Use *USBMap*
+
 - Test external drives with *Blackmagic Disk Speedtest*
 
 - [ ] USB 2 ports
+
 - [ ] USB 2 on USB 3 ports
+
 - [ ] USB 3 and 3.1 ports (check transfer speed during copy)
+
 - [ ] USB C ports
+
 - [ ] SD Card Reader 
+
 - [ ] Camera (Photo Booth, Facetime, Zoom)
+
 - [ ] Fingerprint reader
 
 ### ThunderBolt
@@ -156,7 +165,7 @@ additional checks relevant for Notebooks including Mac Books with Legacy Patcher
 ## OpenCore Boot Key Combinations
 
 * [Mac startup key combinations](https://support.apple.com/en-us/HT201255)
-* Enable `KeySupport` &  `PollAppleHotKeys`  
+* Enable `KeySupport` &  `PollAppleHotKeys` in Config.plist.
 * For PC keyboard: enable `KeySwap`. 
 * Keys can be pressed after power on or when OpenCore Picker is shown.
   * CMD+V — verbose mode.

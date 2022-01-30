@@ -12,13 +12,17 @@
 
 - MB: Gigabyte B460 M Aorus Pro | CPU: Core i9-10900 | GPU: iGPU only, Nvidia disabled | RAM: 16GB | SSD: 250GB | OS: Monterey | Multiboot
 
-### Downloads
+### Check if everything is working
 
-#### OpenCore
+Use the [Hackintosh Checklist](Hackintosh_Checklist.md)
+
+## Downloads
+
+### OpenCore
 
 * [GitHub - acidanthera/OpenCorePkg: OpenCore bootloader](https://github.com/acidanthera/OpenCorePkg)
 
-#### Current Tools
+### Current Tools
 
 - Create EFI, configure and update Opencore: [GitHub - ic005k/QtOpenCoreConfig: OpenCore Auxiliary Tools OpenCore Configurator OCAT](https://github.com/ic005k/QtOpenCoreConfig)
 - Plist Editor: [GitHub - ic005k/PlistEDPlus: plist editor](https://github.com/ic005k/PlistEDPlus)
@@ -26,7 +30,7 @@
 - Python: [Download Python | Python.org](https://www.python.org/downloads/)
 - Create USB Installer: [GitHub - TINU: The open tool to create bootable macOS installers.](https://github.com/ITzTravelInTime/TINU) a GUI for the `createinstallmedia` command (macOS only)
 
-#### Common Kexts
+### Common Kexts
 
 * [acidanthera/VirtualSMC · GitHub](https://github.com/acidanthera/VirtualSMC/releases)
 * [acidanthera/Lilu · GitHub](https://github.com/acidanthera/Lilu/releases)
@@ -34,27 +38,27 @@
 * [acidanthera/AppleALC: Native macOS HD audio](https://github.com/acidanthera/AppleALC)
 * [Releases · Sniki/OS-X-USB-Inject-All · GitHub](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
 
-### Upgrade to a new release of OpenCore
+## Upgrade to a new release of OpenCore
 
-#### Upgrade OpenCore manually
+### Upgrade OpenCore manually
 
 * [Updating OpenCore and macOS | OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/universal/update.html#updating-opencore-and-macos)
 
-#### Upgrade using OpenCore Auxiliary Tools (OCAT)
+### Upgrade using OpenCore Auxiliary Tools (OCAT)
 
 * keep a working EFI backup on a USB-Stick
 * Refer to [OpenCorePkg/Differences.pdf at master · acidanthera/OpenCorePkg · GitHub](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Differences/Differences.pdf) of the most recent release
 * Use *OpenCore Auxiliary Tools (OCAT)* for semi-automated upgrades: [Updating OpenCore and Kexts with OCAT](https://github.com/5T33Z0/OC-Little-Translated/blob/main/D_Updating_OpenCore/README.md#updating-opencore-and-kexts-with-ocat)
 
-### Notes
+## Notes
 
 The EFI folder and config.plist are just provided for reference for those who have similar hardware. Please assemble your own EFI folder according to the [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/). 
 
-##### SMBIOS on Github
+### SMBIOS on Github
 
 In the `config.plist` my personal "Serial Number", "Board Serial Number" and "SmUUID" which are unique SMBIOS credentials have been blanked or randomized before uploading, because they should not be revealed in public. They are unique for each system and are mandatory for activation of iMessage and FaceTime.
 
-##### Deprecated Tools
+### Deprecated Tools
 
 - [Hackintool - InsanelyMac Forum](https://www.insanelymac.com/forum/topic/335018-hackintool-v283/) (mainly used for USB mapping)
   - [Download Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)
