@@ -4,7 +4,7 @@
 
 ### OpenCore Booting
 
-- [ ] Correct OS choices shown in OC Menu/GUI
+- [ ] Correct OS choices shown in OpenCore Menu/GUI
 - [ ] Keyboard shortcuts working (see details below)
   * CMD+V — verbose mode. 
 - [ ] NVRAM working [Verifying if you have working NVRAM](https://dortania.github.io/OpenCore-Post-Install/misc/nvram.html#verifying-if-you-have-working-nvram)
@@ -105,22 +105,19 @@
 
 ### Ethernet
 
-- [ ] Gigabit LAN (System preferences -> Network -> Ethernet -> Adavnced -> Hardware -> Speed should be 1000baseT)
+- [ ] Gigabit LAN (System preferences -> Network -> Ethernet -> Advanced -> Hardware -> Speed should be 1000baseT)
 - [ ] 2.5GBase-T (especially on Comet Lake and above boards)
 - [ ] 10GBase-T (Aquantia with updated firmware)
 
-### Wifi
+### Wifi & Bluetooth
 
-- [ ] Transmission Speed (Option Click -> Wifi menu bar icon -> check Tx Rate)
+- [ ] Wifi transmission speed (Option Click -> Wifi menu bar icon -> check Tx Rate)
+- [ ] Bluetooth devices (trackpad, mouse, keyboard, headset)
 - [ ] AirDrop (test with iDevices)
 - [ ] AirPlay to Mac (macOS Monterey or later, test with iOS 14 or later devices)
   * tap the AirPlay icon on your Apple device to share videos to your Hackintosh
-- [ ] [Sidecar](https://support.apple.com/en-us/HT210380) requires a compatible Mac using macOS Catalina or later and a compatible iPad using iPadOS 13 or later.
-
-### Bluetooth
-
-- [ ] Working (trackpad, mouse, keyboard, headset)
-- [ ] Handoff (Apple services)
+- [ ] Handoff [System requirements for Continuity](https://support.apple.com/en-us/HT204689) and [Use Continuity](https://support.apple.com/en-us/HT204681) which requires macOS Catalina & iOS 13+
+- [ ] [Sidecar](https://support.apple.com/en-us/HT210380) requires macOS Catalina or later and a compatible iPad using iPadOS 13 or later.
 
 ### OS Features
 
@@ -129,7 +126,7 @@
 
 ## Laptop Specific
 
-additional checks relevant for Notebooks including Mac Books with Legacy Patchers
+additional checks relevant for Notebooks including MacBooks with Legacy Patchers
 
 ### Display
 
@@ -185,7 +182,7 @@ additional checks relevant for Notebooks including Mac Books with Legacy Patcher
 - USB Port Mapper: [USBMap: Python script for mapping USB ports in macOS](https://github.com/corpnewt/USBMap) 
 - System Info: [Hackintool](https://github.com/headkaze/Hackintool)
 - IORegistryExplorer [IORegistryClone](https://github.com/khronokernel/IORegistryClone/blob/master/ioreg-302.zip)
-- CPU Torture Test: [Prime95](https://www.mersenne.org/download/
+- CPU Torture Test: [Prime95](https://www.mersenne.org/download/)
 
 ## Links
 
