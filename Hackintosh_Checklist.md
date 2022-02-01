@@ -12,6 +12,7 @@
 - [ ] Security (especially SIP) use *Menu Bar SIP Detector*
 - [ ] FileVault
 - [ ] Multibooting
+- [ ] Serial Number: ensure that it does not exist, [Check Apple Coverage](https://checkcoverage.apple.com/us/en/)
 
 ### Display
 
