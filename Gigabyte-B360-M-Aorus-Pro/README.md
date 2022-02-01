@@ -2,7 +2,7 @@
 
 ![](Monterey_Hackintosh_B360M_Screenshot.png)
 
-## Installed Monterey 12.1
+## Installed Monterey
 
 - Followed the [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (Guide updated to 0.7.5 at the time and referenced the OpenCore `Configuration.pdf` for version 0.7.7).
 - Relevant options chosen based on the applicable hardware are mostly noted below.
@@ -17,6 +17,7 @@
 * Ethernet: Intel I219-V
 * WIFI: Fenvi FV-T919 (Broadcom BCM94360CD)
 * Audio: Realtek ALC892
+* OS: Monterey 12.1 updated to 12.2
 * OpenCore 0.7.7
 
 ### Working
@@ -40,10 +41,7 @@
 
 ### Enable
 
-- [ ] VT-x
 - [x] Above 4G decoding
-- [ ] Hyper-Threading
-- [ ] Execute Disable Bit
 - [x] EHCI/XHCI Hand-off
 - [x] OS type: Windows 8.1/10 UEFI Mode
 - [ ] DVMT Pre-Allocated(iGPU Memory): 64MB
@@ -78,9 +76,10 @@ Hide EFI and external in boot menu
 
 ### Platform Info
 
-[Platform Info](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo)
+[Desktop Coffee Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#platforminfo)
 
-- For setting up the SMBIOS info, instead of using the *GenSMBIOS* application, I used the built-in SMBIOS generator in OCAT.
+- Using iMac19,1 for Mojave and newer
+- For setting up the SMBIOS info, I used the built-in SMBIOS generator in OCAT, (instead of using the *GenSMBIOS* application).
 - Click *Generate* once (near the SystemProductName field)
 
 ### UEFI - APFS

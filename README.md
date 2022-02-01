@@ -7,10 +7,7 @@
 + MB: GA-EP45-UD3L | CPU: Core 2 Quad Q9400 | GPU: Asus GeForce GTX 660Ti | RAM: 8GB G.SKILL 1333MHz | HD: 3TB ST3000DM001 | OS: High Sierra
 + MB: GA-Z87X-OC Force | CPU: Core i7-4770K | GPU: Sapphire Radeon R9-280X | RAM: 16GB G.SKILL 1600MHz | SSD: Crucial M550 256GB | OS: Mojave
 + MB: Gigabyte B360 M Aorus Pro | CPU: Core i5-9400 | GPU: Sapphire Radeon R9 280X | RAM: 16GB HyperX 3200MHz | SSD: Kingston 480GB | WIFI: Fenvi FV-T919 | OS: Monterey
-
-#### To be added
-
-- MB: Gigabyte B460 M Aorus Pro | CPU: Core i9-10900 | GPU: iGPU only, Nvidia disabled | RAM: 16GB | SSD: 250GB | OS: Monterey | Multiboot
++ MB: Gigabyte B460 M Aorus Pro | CPU: Core i9-10900 | GPU: Intel UHD Graphics 630 | RAM: 16GB Corsair DDR4 | SSD: 250GB SATA | OS: Monterey | Multiboot Windows
 
 ### Check if everything is working
 
@@ -24,11 +21,11 @@ Use the [Hackintosh Checklist](Hackintosh_Checklist.md)
 
 ### Current Tools
 
-- Create EFI, configure and update Opencore: [GitHub - ic005k/QtOpenCoreConfig: OpenCore Auxiliary Tools OpenCore Configurator OCAT](https://github.com/ic005k/QtOpenCoreConfig)
-- Plist Editor: [GitHub - ic005k/PlistEDPlus: plist editor](https://github.com/ic005k/PlistEDPlus)
-- USB Port Mapper: [GitHub - corpnewt/USBMap: Python script for mapping USB ports in macOS and creating a custom injector kext.](https://github.com/corpnewt/USBMap) (requires Python)
+- Create EFI, configure and update Opencore: [QtOpenCoreConfig: OpenCore Auxiliary Tools OpenCore Configurator OCAT](https://github.com/ic005k/QtOpenCoreConfig)
+- Plist Editor: [PlistEDPlus: plist editor](https://github.com/ic005k/PlistEDPlus)
+- USB Port Mapper: [USBMap: mapping USB ports in macOS and creating a custom injector kext.](https://github.com/corpnewt/USBMap) (requires Python) and [USBToolBox](https://github.com/USBToolBox/tool) (on Windows)
 - Python: [Download Python | Python.org](https://www.python.org/downloads/)
-- Create USB Installer: [GitHub - TINU: The open tool to create bootable macOS installers.](https://github.com/ITzTravelInTime/TINU) a GUI for the `createinstallmedia` command (macOS only)
+- Create USB Installer: [TINU: The open tool to create bootable macOS installers.](https://github.com/ITzTravelInTime/TINU) a GUI for the `createinstallmedia` command (macOS only)
 
 ### Common Kexts
 

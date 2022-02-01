@@ -2,7 +2,7 @@
 
 ![](Monterey_Hackintosh_B460M_Screenshot.png)
 
-## Installed Monterey 12.2
+## Installed Monterey
 
 - Followed the [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (Guide updated to 0.7.5 at the time and referenced the OpenCore `Configuration.pdf` for version 0.7.7).
 - Relevant options chosen based on the applicable hardware are mostly noted below.
@@ -82,8 +82,9 @@ Hide EFI and external in boot menu
 
 ### Platform Info
 
-[Platform Info](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo)
+[Desktop Comet Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo)
 
+- Using iMac20,2 for i9-10850K and higher
 - For setting up the SMBIOS info, I used the built-in SMBIOS generator in OCAT, (instead of using the *GenSMBIOS* application).
 - Click *Generate* once (near the SystemProductName field)
 
