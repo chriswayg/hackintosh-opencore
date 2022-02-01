@@ -7,9 +7,9 @@
 - [ ] Correct OS choices shown in OpenCore Menu/GUI
 - [ ] Keyboard shortcuts working (see details below)
   * CMD+V — verbose mode. 
-- [ ] NVRAM working [Verifying if you have working NVRAM](https://dortania.github.io/OpenCore-Post-Install/misc/nvram.html#verifying-if-you-have-working-nvram)
-  - Apple -> System Preferences -> Startup Disk uses NVRAM.
-- [ ] Security (especially SIP) use [Menu Bar SIP Detector](https://github.com/ITzTravelInTime/MenuBarSIPDetector) 
+- [ ] NVRAM working: [Verifying if you have working NVRAM](https://dortania.github.io/OpenCore-Post-Install/misc/nvram.html#verifying-if-you-have-working-nvram)
+  - Apple -> System Preferences -> Startup Disk (uses NVRAM).
+- [ ] Security (especially SIP) use *Menu Bar SIP Detector*
 - [ ] FileVault
 - [ ] Multibooting
 
@@ -166,7 +166,7 @@ additional checks relevant for Notebooks including MacBooks with Legacy Patchers
 
 ## Tools
 
-- System Integrity Protection: [menu bar app that displays the current status of SIP](https://github.com/ITzTravelInTime/MenuBarSIPDetector)
+- Menu Bar SIP Detector: [menu bar app that displays the current status of SIP](https://github.com/ITzTravelInTime/MenuBarSIPDetector)
 - GLview: [OpenGL Extensions Viewer](http://www.realtech-vr.com/home/glview)
 - Metal benchmark: [Geekbench](https://www.geekbench.com)
 - Disk Speedtest: [‎Blackmagic Disk Speed Test](https://apps.apple.com/us/app/blackmagic-disk-speed-test/id425264550)
