@@ -14,16 +14,19 @@
 * RAM: 16GB Corsair DDR4
 * SSD: 250GB SATA 2.5"
 * GPU: Intel UHD Graphics 630 (dGPU disabled: GeForce GTX 1650 Super)
-* Ethernet: Intel I219-V
+* Ethernet: Intel GbE LAN chip
 * WIFI: none
-* Audio: Realtek ALC892
+* Audio: Realtek ALC1200
 * OS: Monterey 12.2, multiboot with Windows 10 Pro
 * OpenCore 0.7.7
 
 ### Working
 
-- Audio, Video, Ethernet
-- NVRAM seems to get changed by macOS in a way that prevents the BIOS 
+- iGPU, Audio, Ethernet
+
+### Issues
+
+- NVRAM seems to get changed by macOS in a way that prevents the BIOS screen from loading upon restart from macOS. Does `UpdateNVRAM` or do other OpenCore or OS features corrupt the settings for the UEFI BIOS?
 
 ## BIOS settings
 
@@ -53,17 +56,23 @@ Used [GitHub: OpenCore Auxiliary Tools (OCAT)](https://github.com/ic005k/QtOpenC
 
 ## Edit config.plist
 
+### ACPI and Quirks
+
+- check if `SSDT-PMC.aml` is needed (set by OCAT)
+
+- check if ResetLogoStatus is needed (set by OCAT)
+
 ### NVRAM
 
-- `boot-args -v debug=0x100 debug=0x100 alcid=1` for debugging and audio
+- `boot-args -v -wegnoegpu alcid=1 debug=0x100 keepsyms=1` disable dGPU, enable audio and debugging
 
 ### Device Properties
 
-- `AAPL,ig-platform-id 00009B3E` Used when the Desktop iGPU is used to drive a display
+- `AAPL,ig-platform-id 00009B3E` Used when the Desktop iGPU is used to drive a display (also tried `07009B3E`)
 
 ### Kernel - Quirks
 
-- `AppleXcpmCfgLock Yes` (optional, as set in BIOS already)
+- `AppleXcpmCfgLock No` (optional, as set in BIOS already)
 
 ### Misc - Security
 
@@ -75,7 +84,7 @@ Hide EFI and external in boot menu
 
 [Platform Info](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo)
 
-- For setting up the SMBIOS info, instead of using the *GenSMBIOS* application, I used the built-in SMBIOS generator in OCAT.
+- For setting up the SMBIOS info, I used the built-in SMBIOS generator in OCAT, (instead of using the *GenSMBIOS* application).
 - Click *Generate* once (near the SystemProductName field)
 
 ## Create USB Installer & install
@@ -100,7 +109,7 @@ Python script for mapping USB ports in macOS and creating a custom injector kext
 
 ### Debugging
 
-- Initially configured with all recommended debugging settings enabled
+- Initially configured with all recommended debugging settings enabled.
 
 ### Multi-Boot
 
