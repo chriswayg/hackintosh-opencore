@@ -42,14 +42,6 @@
                 </dict>
                 <dict>
                     <key>Comment</key>
-                    <string>Adds PMCR Device - native NVRAM on systems that lack it</string>
-                    <key>Enabled</key>
-                    <false/>
-                    <key>Path</key>
-                    <string>SSDT-PMC.aml</string>
-                </dict>
-                <dict>
-                    <key>Comment</key>
                     <string>Enables AppleSMBus and Memory Controller Support</string>
                     <key>Enabled</key>
                     <false/>
