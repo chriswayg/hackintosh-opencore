@@ -55,10 +55,11 @@ The EFI folder and config.plist are just provided for reference for those who ha
 
 In the `config.plist` my personal "Serial Number", "Board Serial Number" and "SmUUID" which are unique SMBIOS credentials have been blanked or randomized before uploading, because they should not be revealed in public. They are unique for each system and are mandatory for activation of iMessage and FaceTime.
 
-### Deprecated Tools
+### Previously used Tools
 
-- [Hackintool - InsanelyMac Forum](https://www.insanelymac.com/forum/topic/335018-hackintool-v283/) (mainly used for USB mapping)
+- [Hackintool - InsanelyMac Forum](https://www.insanelymac.com/forum/topic/335018-hackintool-v283/) 
+  - Mainly used for USB mapping. Also useful for System Information and iGPU Framebuffer.
   - [Download Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)
   - [headkaze/Hackintool: The Swiss army knife of vanilla Hackintoshing](https://github.com/headkaze/Hackintool)
-- [GitHub - rusty-bits/OC-tool: Shell script that builds an OpenCore EFI folder from an OpenCore config.plist](https://github.com/rusty-bits/OC-tool) (replaced by OCAT which has more features)
+- [GitHub - rusty-bits/OC-tool: Shell script that builds an OpenCore EFI folder from an OpenCore config.plist](https://github.com/rusty-bits/OC-tool) (replaced by OCAT which has more features. The developer alse created a new iteration of this tool.)
 - [PlistEdit Pro – Advanced Mac plist editor](https://www.fatcatsoftware.com/plisteditpro/) (nice, but commercial)
