@@ -37,6 +37,7 @@
   - *System Information* -> Graphics/Displays -> Metal: Supported
   - *GLView*
   - *Geekbench* -> Compute -> Metal
+- [ ] Intel Quick Sync
 
 ### Audio
 
@@ -172,10 +173,12 @@ additional checks relevant for Notebooks including MacBooks with Legacy Patchers
 - Metal benchmark: [Geekbench](https://www.geekbench.com)
 - Disk Speedtest: [‎Blackmagic Disk Speed Test](https://apps.apple.com/us/app/blackmagic-disk-speed-test/id425264550)
 - Battery checker: [coconutBattery](https://www.coconut-flavour.com/coconutbattery/) useful for Laptops
-- USB Port Mapper: [USBMap: Python script for mapping USB ports in macOS](https://github.com/corpnewt/USBMap) 
+- USB Port Mapper: [USBMap](https://github.com/corpnewt/USBMap) or [USBToolBox](https://github.com/USBToolBox/tool)
 - System Info: [Hackintool](https://github.com/headkaze/Hackintool)
 - IORegistryExplorer [IORegistryClone](https://github.com/khronokernel/IORegistryClone/blob/master/ioreg-302.zip)
 - CPU Torture Test: [Prime95](https://www.mersenne.org/download/)
+- CPU power usage monitoring: [Intel Power Gadget](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html)
+- Merge Plists for Upgrades: [Meld](https://yousseb.github.io/meld/)
 
 ## Links
 
