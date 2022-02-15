@@ -2,9 +2,9 @@
 
 ![](Monterey_Hackintosh_B460M_Screenshot.png)
 
-## Installed Monterey
+## Hackintosh workflow
 
-- Followed the [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (Guide updated to 0.7.5 at the time and referenced the OpenCore `Configuration.pdf` for version 0.7.7).
+- Followed the worflow described in my [Opencore Visual Beginners Guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/), which is based on the process described in [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (with reference to the OpenCore `Configuration.pdf` for version 0.7.7).
 - Relevant options chosen based on the applicable hardware are mostly noted below.
 
 ### Specs
@@ -13,27 +13,35 @@
 * MB: Gigabyte B460 M Aorus Pro
 * RAM: 16GB Corsair DDR4
 * SSD: 250GB SATA 2.5"
-* GPU: Intel UHD Graphics 630 (dGPU disabled: GeForce GTX 1650 Super)
+* iGPU: Intel UHD Graphics 630
+* dGPU disabled: GeForce GTX 1650 Super
 * Ethernet: Intel GbE LAN chip
 * WIFI: none
 * Audio: Realtek ALC1200
+* Monitor main: ASUS TUF Gaming VG259QM (DisplayPort)
+* Monitor secondary: ASUS VZ229H (HDMI)
 * OS: Monterey 12.2, multiboot with Windows 10 Pro
 * OpenCore 0.7.7
 
 ### Working
 
-- iGPU, Audio, Ethernet
+- iGPU with 2 monitors, Audio, Ethernet, USB ports, Multiboot via BIOS menu
+
+### Untested
+
+- DVI port
 
 ### Issues
 
-- NVRAM seems to get changed by macOS in a way that prevents the BIOS screen from loading upon restart from macOS. Does `UpdateNVRAM` or do other OpenCore or OS features corrupt the settings for the UEFI BIOS?
+- Multiboot: Windows 10 frequently changes the BIOS setting CSM from disabled to enabled.
+- Dual Monitors: If macOS is booted with both monitors switched on the HDMI monitor glitches and becomes unreadable. Current workaraound is to boot with the HDMI monitor only and then to plug in the DisplayPort monitor. In macOS both monitors are set to 60 Hz which improved the usability.
 
 ## BIOS settings
 
 ### Disable
 
 - [x] Serial/COM Port
-- [x] VT-d (can be enabled if you set DisableIoMapper to YES)
+- [x] VT-d (can be enabled if DisableIoMapper is set to YES in OpenCore)
 - [x] CSM
 - [x] Intel SGX
 - [x] Intel Platform Trust
@@ -49,34 +57,49 @@
 
 ## Create EFI using OpenCore Auxiliary Tools
 
-Used [GitHub: OpenCore Auxiliary Tools (OCAT)](https://github.com/ic005k/QtOpenCoreConfig) to create initial config, while cross checking each setting with *Dortania's OpenCore Install Guide* 
+Used [GitHub: OpenCore Auxiliary Tools (OCAT)](https://github.com/ic005k/QtOpenCoreConfig) to create initial config, while cross checking each setting with *Dortania's OpenCore Install Guide*
 
-- Steps to take: [Generate EFI Folders using OpenCore Auxiliary Tools](https://github.com/5T33Z0/OC-Little-Translated/tree/main/F_Desktop_EFIs#generate-efi-folders-using-opencore-auxiliary-tools)
 - Initialize EFI with Database > `Desktop_10thGen_Comet_Lake_iMac20,2.plist`
 
 ## Edit config.plist
 
+Almost all presets loaded by OCAT are identical to the OpenCore Install Guide. Only changes will be noted below.
+
 ### ACPI and Quirks
 
-- check if `SSDT-PMC.aml` is needed (set by OCAT)
+- removed `SSDT-PMC.aml` as it is not needed
 
-- check if ResetLogoStatus is needed (set by OCAT)
+- unchecked ResetLogoStatus
 
 ### NVRAM
 
-- `boot-args -v -wegnoegpu alcid=1 debug=0x100 keepsyms=1` disable dGPU, enable audio and debugging
+Disable dGPU, enable audio and debugging:
+
+- `boot-args    -v -wegnoegpu alcid=1 debug=0x100 keepsyms=1` 
 
 ### Device Properties
 
-- `AAPL,ig-platform-id 00009B3E` Used when the Desktop iGPU is used to drive a display (also tried `07009B3E`)
+Used when the Desktop iGPU is used to drive a display
+
+- `AAPL,ig-platform-id 07009B3E` 
+
+This only enabled the DisplayPort. In order to enable the HDMI port, I had to add additional framebuffer data.
+
+### Kernel - Add
+
+- Added `IntelMausi.kext`for Intel Ethernet. 
+
+- `CPUFriend.kext` and `CPUFriendDataProvider.kext` not yest tested
+
+- Added the USB related kexts described in Post-Install.
 
 ### Kernel - Quirks
 
-- `AppleXcpmCfgLock No` (optional, as set in BIOS already)
+- `AppleXcpmCfgLock   No` (optional, as set in BIOS already)
 
 ### Misc - Security
 
-Hide EFI and external in boot menu
+Hide EFI and external in boot menu. We do not want to show Windows either, as it should be booted via BIOS or using the rEFInd Boot Manager.
 
 - `ScanPolicy 983299`
 
@@ -100,18 +123,16 @@ mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubuse
 
 ## Post-install
 
-### Map USB Ports using USBMap
+### Mapped USB Ports
 
-Python script for mapping USB ports in macOS and creating a custom injector kext.
+- Using USBTool from within Windows: [GitHub - USBToolBox/tool: the USBToolBox tool](https://github.com/USBToolBox/tool)
 
-[GitHub - corpnewt/USBMap: Python script for mapping USB ports in macOS and creating a custom injector kext.](https://github.com/corpnewt/USBMap)
+- Added `XHCI-unsupported.kext` (test, if it may not be needed)
 
-- not yet complete
+- Added`USBToolBox.kext and the `UTBMap.kext` previously created in Windows. I had to rework it, as the USB3 ports were not yet working with the generated kext. 
+
+- Currently mapped: Top Front: 2 x with both USB2 & 3, Rear Top: 2 x USB2 only, Rear Middle: USB-C & USB3, Rear Down: 2 x USB3 only.
 
 ### Debugging
 
 - Initially configured with all recommended debugging settings enabled.
-
-### Multi-Boot
-
-- This configuration is also supposed to be able to boot a Windows 10 installation on a separate SSD
