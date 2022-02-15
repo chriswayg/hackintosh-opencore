@@ -4,7 +4,7 @@
 
 ## Hackintosh workflow
 
-- Followed the worflow described in my [Opencore Visual Beginners Guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/), which is based on the process described in [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (with reference to the OpenCore `Configuration.pdf` for version 0.7.7).
+- Followed the worflow described in my [Opencore Visual Beginners Guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/), which is used alongside [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (with reference to the OpenCore `Configuration.pdf` for version 0.7.7)
 - Relevant options chosen based on the applicable hardware are mostly noted below.
 
 ### Specs
@@ -26,10 +26,6 @@
 ### Working
 
 - iGPU with 2 monitors, Audio, Ethernet, USB ports, Multiboot via BIOS menu
-
-### Untested
-
-- DVI port
 
 ### Issues
 
@@ -83,13 +79,13 @@ Used when the Desktop iGPU is used to drive a display
 
 - `AAPL,ig-platform-id 07009B3E` 
 
-This only enabled the DisplayPort. In order to enable the HDMI port, I had to add additional framebuffer data.
+This only enabled the DisplayPort. In order to enable the HDMI port, I had to add additional framebuffer data. The DVI port has not been tested yet.
 
 ### Kernel - Add
 
 - Added `IntelMausi.kext`for Intel Ethernet. 
 
-- `CPUFriend.kext` and `CPUFriendDataProvider.kext` not yest tested
+- Not yest tested`CPUFriend.kext` and `CPUFriendDataProvider.kext` 
 
 - Added the USB related kexts described in Post-Install.
 
@@ -99,7 +95,7 @@ This only enabled the DisplayPort. In order to enable the HDMI port, I had to ad
 
 ### Misc - Security
 
-Hide EFI and external in boot menu. We do not want to show Windows either, as it should be booted via BIOS or using the rEFInd Boot Manager.
+Hide EFI and external from boot menu. We do not want to show Windows either, as it should be booted via BIOS or using the rEFInd Boot Manager.
 
 - `ScanPolicy 983299`
 
@@ -108,12 +104,12 @@ Hide EFI and external in boot menu. We do not want to show Windows either, as it
 [Desktop Comet Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo)
 
 - Using iMac20,2 for i9-10850K and higher
-- For setting up the SMBIOS info, I used the built-in SMBIOS generator in OCAT, (instead of using the *GenSMBIOS* application).
-- Click *Generate* once (near the SystemProductName field)
+- For setting up the SMBIOS info, I used the built-in SMBIOS generator in OCAT, (instead of using the *GenSMBIOS* application). - Click *Generate* once (near the SystemProductName field)
+- Separately randomized before uploading to Github. These need to be changed before using the EFI.
 
 ## Create USB Installer & install
 
-- Download latest Monterey (requires python):
+- Download latest Monterey 12.2 (requires python):
 
 ```
 mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubusercontent.com/munki/macadmin-scripts/main/installinstallmacos.py > installinstallmacos.py && sudo python installinstallmacos.py
@@ -123,13 +119,13 @@ mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubuse
 
 ## Post-install
 
-### Mapped USB Ports
+### Map USB Ports
 
 - Using USBTool from within Windows: [GitHub - USBToolBox/tool: the USBToolBox tool](https://github.com/USBToolBox/tool)
 
-- Added `XHCI-unsupported.kext` (test, if it may not be needed)
+- Add `XHCI-unsupported.kext` (test, if it may not be needed)
 
-- Added`USBToolBox.kext and the `UTBMap.kext` previously created in Windows. I had to rework it, as the USB3 ports were not yet working with the generated kext. 
+- Add`USBToolBox.kext and the `UTBMap.kext` previously created in Windows. - I had to rework it, as the USB3 ports were not yet working with the generated kext. 
 
 - Currently mapped: Top Front: 2 x with both USB2 & 3, Rear Top: 2 x USB2 only, Rear Middle: USB-C & USB3, Rear Down: 2 x USB3 only.
 
