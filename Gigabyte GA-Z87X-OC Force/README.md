@@ -2,7 +2,7 @@
 
 ## Switch to OpenCore from Clover: Z87, i7-4770K, R9-280X running Mojave
 
-Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/) and the OpenCore Configuration.pdf - The parts I configured different from the Guide are mostly noted below.
+Generally followed the [Opencore Vanilla Desktop Guide](https://github.com/khronokernel/Opencore-Vanilla-Desktop-Guide/tree/0.5.6) and the OpenCore Configuration.pdf - The parts I configured different from the Guide are mostly noted below.
 
 ### Specs
 
