@@ -2,7 +2,7 @@
 
 ## Switch to OpenCore from Clover: P45, Core 2 Q9400, GTX 660Ti, High Sierra
 
-Generally followed the [Opencore Vanilla Desktop Guide](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/) and the OpenCore Configuration.pdf - The parts I configured different from the Guide are mostly noted below.
+Generally followed the [Opencore Vanilla Desktop Guide](https://github.com/khronokernel/Opencore-Vanilla-Desktop-Guide/tree/0.5.6) and the OpenCore Configuration.pdf - The parts I configured different from the Guide are mostly noted below.
 
 ### Specs
 
