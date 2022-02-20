@@ -11,7 +11,7 @@
 
 ### Check if everything is working
 
-Use the [Hackintosh Checklist](Hackintosh_Checklist.md)
+Use the [Hackintosh Checklist](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/install/hackintosh-checklist)
 
 ## Downloads
 
