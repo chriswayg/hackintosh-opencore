@@ -1,5 +1,5 @@
 # Hackintosh on Aspire 4741 Laptop
-Generally followed the  [Opencore Vanilla Desktop Guide](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/)  and the OpenCore Configuration.pdf
+Generally followed the  [Opencore Vanilla Desktop Guide](https://github.com/khronokernel/Opencore-Vanilla-Desktop-Guide/tree/0.5.6)  and the OpenCore Configuration.pdf
 
 ### Specs
 * CPU: Intel Core i3 330M 2.13 GHz dual-core (Westmere/Arrandale)
