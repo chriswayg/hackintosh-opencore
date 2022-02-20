@@ -9,43 +9,19 @@
 + MB: Gigabyte B360 M Aorus Pro | CPU: Core i5-9400 | GPU: Sapphire Radeon R9 280X | RAM: 16GB HyperX 3200MHz | SSD: Kingston 480GB | WIFI: Fenvi FV-T919 | OS: Monterey
 + MB: Gigabyte B460 M Aorus Pro | CPU: Core i9-10900 | GPU: Intel UHD Graphics 630 | RAM: 16GB Corsair DDR4 | SSD: 250GB SATA | OS: Monterey | Multiboot Windows
 
-### Check if everything is working
+## Workflow
 
-Use the [Hackintosh Checklist](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/install/hackintosh-checklist)
+- All [OpenCore bootloader](https://github.com/acidanthera/OpenCorePkg) configurations are based on the (at time of installlation) current [Dortania - OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/).
+- The workflow is explained in my [Opencore Visual Beginners Guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/) which uses GUI tools wherever possible for Hackintosh configuration, installation and maintenance.
+- I check if everything is working using the [Hackintosh Checklist](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/install/hackintosh-checklist).
+- To upgrade to a new release of OpenCore, follow the steps explained in [Upgrade OpenCore and Kexts](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/oc-auxiliary-tool-upgrade#upgrade-opencore-and-kexts).
 
-## Downloads
+### Main Tools
 
-### OpenCore
-
-* [GitHub - acidanthera/OpenCorePkg: OpenCore bootloader](https://github.com/acidanthera/OpenCorePkg)
-
-### Current Tools
-
-- Create EFI, configure and update Opencore: [QtOpenCoreConfig: OpenCore Auxiliary Tools OpenCore Configurator OCAT](https://github.com/ic005k/QtOpenCoreConfig)
-- Plist Editor: [PlistEDPlus: plist editor](https://github.com/ic005k/PlistEDPlus)
-- USB Port Mapper: [USBMap: mapping USB ports in macOS and creating a custom injector kext.](https://github.com/corpnewt/USBMap) (requires Python) and [USBToolBox](https://github.com/USBToolBox/tool) (on Windows)
+- Create EFI, configure and update Opencore: [OCAuxiliaryTools - AuOpenCore Auxiliary Tools and Configurator (OCAT)](https://github.com/ic005k/QtOpenCoreConfig)
+- Plist Editor: [PlistEDPlus](https://github.com/ic005k/PlistEDPlus)
+- USB Port Mapper: [USBMap: mapping USB ports in macOS and creating a custom injector kext](https://github.com/corpnewt/USBMap) (requires Python) and [USBToolBox](https://github.com/USBToolBox/tool) (on Windows)
 - Python: [Download Python | Python.org](https://www.python.org/downloads/)
-- Create USB Installer: [TINU: The open tool to create bootable macOS installers.](https://github.com/ITzTravelInTime/TINU) a GUI for the `createinstallmedia` command (macOS only)
-
-### Common Kexts
-
-* [acidanthera/VirtualSMC · GitHub](https://github.com/acidanthera/VirtualSMC/releases)
-* [acidanthera/Lilu · GitHub](https://github.com/acidanthera/Lilu/releases)
-* [acidanthera/WhateverGreen · GitHub](https://github.com/acidanthera/WhateverGreen/releases)
-* [acidanthera/AppleALC: Native macOS HD audio](https://github.com/acidanthera/AppleALC)
-* [Releases · Sniki/OS-X-USB-Inject-All · GitHub](https://github.com/Sniki/OS-X-USB-Inject-All/releases)
-
-## Upgrade to a new release of OpenCore
-
-### Upgrade OpenCore manually
-
-* [Updating OpenCore and macOS | OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/universal/update.html#updating-opencore-and-macos)
-
-### Upgrade using OpenCore Auxiliary Tools (OCAT)
-
-* keep a working EFI backup on a USB-Stick
-* Refer to [OpenCorePkg/Differences.pdf at master · acidanthera/OpenCorePkg · GitHub](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Differences/Differences.pdf) of the most recent release
-* Use *OpenCore Auxiliary Tools (OCAT)* for semi-automated upgrades: [Updating OpenCore and Kexts with OCAT](https://github.com/5T33Z0/OC-Little-Translated/blob/main/D_Updating_OpenCore/README.md#updating-opencore-and-kexts-with-ocat)
 
 ## Notes
 
@@ -61,5 +37,5 @@ In the `config.plist` my personal "Serial Number", "Board Serial Number" and "Sm
   - Mainly used for USB mapping. Also useful for System Information and iGPU Framebuffer.
   - [Download Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)
   - [headkaze/Hackintool: The Swiss army knife of vanilla Hackintoshing](https://github.com/headkaze/Hackintool)
-- [GitHub - rusty-bits/OC-tool: Shell script that builds an OpenCore EFI folder from an OpenCore config.plist](https://github.com/rusty-bits/OC-tool) (replaced by OCAT which has more features. The developer alse created a new iteration of this tool.)
-- [PlistEdit Pro – Advanced Mac plist editor](https://www.fatcatsoftware.com/plisteditpro/) (nice, but commercial)
+- [GitHub - rusty-bits/OC-tool: Shell script that builds an OpenCore EFI folder from an OpenCore config.plist](https://github.com/rusty-bits/OC-tool) - Replaced by OCAuxiliaryTools which has more features. - The developer also created a new iteration of OC-tool using Rust.
+- [PlistEdit Pro – Advanced Mac plist editor](https://www.fatcatsoftware.com/plisteditpro/) - Nice, but commercial.
