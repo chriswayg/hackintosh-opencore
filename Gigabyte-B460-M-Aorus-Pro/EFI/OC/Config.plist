@@ -231,6 +231,12 @@
                 </dict>
                 <key>PciRoot(0x0)/Pci(0x2,0x0)</key>
                 <dict>
+                    <key>#framebuffer-con0-alldata</key>
+                    <data>AQQYAAAEAADHAwAA</data>
+                    <key>#framebuffer-con0-enable</key>
+                    <data>AQAAAA==</data>
+                    <key>#framebuffer-con2</key>
+                    <string>HDMI Out</string>
                     <key>AAPL,ig-platform-id</key>
                     <data>BwCbPg==</data>
                     <key>AAPL,slot-name</key>
@@ -239,10 +245,6 @@
                     <data>kj4AAA==</data>
                     <key>device_type</key>
                     <string>Display controller</string>
-                    <key>framebuffer-con0-alldata</key>
-                    <data>AQQYAAAEAADHAwAA</data>
-                    <key>framebuffer-con0-enable</key>
-                    <data>AQAAAA==</data>
                     <key>framebuffer-con2-alldata</key>
                     <data>AwYYAAAIAADHAwAA</data>
                     <key>framebuffer-con2-enable</key>
@@ -266,7 +268,7 @@
                     <key>BundlePath</key>
                     <string>Lilu.kext</string>
                     <key>Comment</key>
-                    <string>V1.5.9 | Patch Ebngine</string>
+                    <string>V1.6.0 | Patch Ebngine</string>
                     <key>Enabled</key>
                     <true/>
                     <key>ExecutablePath</key>
@@ -302,7 +304,7 @@
                     <key>BundlePath</key>
                     <string>WhateverGreen.kext</string>
                     <key>Comment</key>
-                    <string>V1.5.6 | Video Patches</string>
+                    <string>V1.5.7 | Video Patches</string>
                     <key>Enabled</key>
                     <true/>
                     <key>ExecutablePath</key>
@@ -320,7 +322,7 @@
                     <key>BundlePath</key>
                     <string>AppleALC.kext</string>
                     <key>Comment</key>
-                    <string>V1.6.8 | Audio Patches</string>
+                    <string>V1.6.9 | Audio Patches</string>
                     <key>Enabled</key>
                     <true/>
                     <key>ExecutablePath</key>
@@ -462,27 +464,9 @@
                     <key>Arch</key>
                     <string>Any</string>
                     <key>BundlePath</key>
-                    <string>USBToolBox.kext</string>
+                    <string>USBPorts.kext</string>
                     <key>Comment</key>
-                    <string>V1.0.1</string>
-                    <key>Enabled</key>
-                    <true/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/USBToolBox</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string></string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
-                    <string>Any</string>
-                    <key>BundlePath</key>
-                    <string>UTBMap.kext</string>
-                    <key>Comment</key>
-                    <string>V1.1</string>
+                    <string>V1.0</string>
                     <key>Enabled</key>
                     <true/>
                     <key>ExecutablePath</key>
@@ -631,7 +615,7 @@
                 <key>TakeoffDelay</key>
                 <integer>0</integer>
                 <key>Timeout</key>
-                <integer>5</integer>
+                <integer>2</integer>
             </dict>
             <key>Debug</key>
             <dict>
@@ -673,7 +657,7 @@
                 <key>EnablePassword</key>
                 <false/>
                 <key>ExposeSensitiveData</key>
-                <integer>7</integer>
+                <integer>3</integer>
                 <key>HaltLevel</key>
                 <integer>2147483648</integer>
                 <key>PasswordHash</key>
@@ -681,9 +665,9 @@
                 <key>PasswordSalt</key>
                 <data></data>
                 <key>ScanPolicy</key>
-                <integer>983299</integer>
+                <integer>590083</integer>
                 <key>SecureBootModel</key>
-                <string>Disabled</string>
+                <string>Default</string>
                 <key>Vault</key>
                 <string>Optional</string>
             </dict>
@@ -807,7 +791,7 @@
                 <key>AdviseFeatures</key>
                 <true/>
                 <key>MLB</key>
-                <string>C02130802GU0000UE</string>
+                <string></string>
                 <key>MaxBIOSVersion</key>
                 <false/>
                 <key>ProcessorType</key>
@@ -821,9 +805,9 @@
                 <key>SystemProductName</key>
                 <string>iMac20,2</string>
                 <key>SystemSerialNumber</key>
-                <string>C02G45YT046M</string>
+                <string></string>
                 <key>SystemUUID</key>
-                <string>547A6992-14F9-47C9-8C4F-A490BDA991F1</string>
+                <string></string>
             </dict>
             <key>UpdateDataHub</key>
             <true/>
