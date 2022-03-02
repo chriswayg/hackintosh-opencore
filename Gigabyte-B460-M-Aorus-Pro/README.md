@@ -34,28 +34,51 @@ Final Cut Pro runnig on Monterey performs well
 
 ### Issues
 
-- Multiboot: Windows 10 frequently changes the BIOS setting *CSM* from *disabled* to *enabled*.
-- Dual Monitors: If macOS is booted with both monitors switched on the DisplayPort monitor does not always stay on and has to be manually switched on. One current workaraound is to boot with the HDMI monitor only and then to plug in the DisplayPort monitor. In macOS both monitors are set to 60 Hz which improved the usability.
-- Planning to upgrade to RX 6600, as manually plugging the monitors from the dGPU to the iGPU is not optimal. 
+- Planning to upgrade to RX 6600, as manually plugging the monitors from the dGPU to the iGPU for macOS and back for Windows is not optimal.
+
+- **Dual Monitors:** If macOS is booted with both monitors switched on the DisplayPort Gaming monitor does not always stay on and has to be manually switched on. One current workaround is to boot with the HDMI monitor only and then to plug in the DisplayPort monitor. In macOS both monitors are set to 60 Hz which improved the usability.
+
+- The above issue occurs while CSM is disabled in BIOS which is the preferred setting for a hackintosh. I also had sync issues which would effect one or both monitors, even with igfxonln=1 added (as suggested in a comment), and even when both monitors are on 60 Hz.
+
+- When I re-**enabled CSM** the monitors responded better and I am able to boot properly with both monitors plugged in and switching on. No more sync issues either. Why CSM still has such an effect after the initial boot process is finished is a mystery to me. Somehow the bug or lack of synchronization occurs at the point when the Apple graphics drivers take over.
+
+- The main monitor, ASUS TUF Gaming VG259QM (via DisplayPort) has issues with the BIOS when it is plugged into the iGPU that are independent of hackintosh use. Often it will not switch on and will not show the UEFI BIOS when booting. Could be related to poor BIOS firmware or poor monitor firmware or maybe the (factory provided) overclocking feature up to 280 Hz. It's not something that can be fixed with OpenCore.
+
+- Multiboot: Windows 10 frequently changes the BIOS setting *CSM* from *disabled* to *enabled*. - Not an issue any more, as I found out that macOS actually boots better with CSM enabled on this board.
 
 ## BIOS settings
 
+### Display
+
+* [x] Initial Display Output - IGFX
+* [x] Internal Graphics - Enabled
+* [x] DVMT Pre-Allocated - 64M
+
+![](/Users/christian/developer/git_projects/hackintosh-opencore/Gigabyte-B460-M-Aorus-Pro/images/74c9264803c5f5d8651864587b0a6ff681a4da64.jpeg)
+
 ### Disable
 
+- [x] Secure Boot
 - [x] Serial/COM Port
-- [x] VT-d (can be enabled if DisableIoMapper is set to YES in OpenCore)
-- [x] CSM
 - [x] Intel SGX
 - [x] Intel Platform Trust
 - [x] CFG Lock
+- [x] Wake on Lan
 
 ### Enable
 
+- [x] Fast Boot (leads to better icon sizes in OpenCanopy with correct resolution)
+
+![](/Users/christian/developer/git_projects/hackintosh-opencore/Gigabyte-B460-M-Aorus-Pro/images/d8ac26ba8c06e04188172f136df481192ad691d6.jpeg)
+
+- [x] VT-d (can be enabled if DisableIoMapper* is set to *YES*)
 - [x] Above 4G decoding
 - [x] EHCI/XHCI Hand-off
-- [x] OS type: Windows 8.1/10 UEFI Mode
-- [x] DVMT Pre-Allocated(iGPU Memory): 64MB
+- [x] OS type: Other
 - [x] SATA Mode: AHCI
+- [x] CSM - changed CSM to enabled (see Issues above)
+
+![](/Users/christian/developer/git_projects/hackintosh-opencore/Gigabyte-B460-M-Aorus-Pro/images/41af2bfd4319b4f50851897a4ddc13cba6835328.jpeg)
 
 ## Create EFI using OpenCore Auxiliary Tools
 
@@ -75,7 +98,7 @@ Almost all presets loaded by OCAuxiliaryTools are identical to the OpenCore Inst
 
 ### NVRAM
 
-Disabled dGPU, enabled audio and debugging:
+Disabled dGPU, enabled audio and optional debugging:
 
 - `boot-args    -v -wegnoegpu alcid=1 debug=0x100 keepsyms=1` 
 
@@ -107,11 +130,11 @@ framebuffer-patch-enable    01000000
 
 ### Misc - Security
 
-Hide EFI and external from boot menu. We do not want to show Windows either, as it should be booted via BIOS or using the rEFInd Boot Manager.
+Hide EFI and external from boot menu. Windows, booted via *OpenCore Custom Mode* is shown via `OC_SCAN_ALLOW_FS_ESP`.
 
-![](/Users/christian/developer/git_projects/hackintosh-opencore/Gigabyte-B460-M-Aorus-Pro/images/8e70a440a5a3802470e9aa7e12791290d9f9e645.png)
+![](/Users/christian/developer/git_projects/hackintosh-opencore/Gigabyte-B460-M-Aorus-Pro/images/5a2674d56395f662f032e7477df9dd31b7d46881.png)
 
-- `ScanPolicy   590083`
+- `ScanPolicy    591107`
 
 ### Platform Info
 
@@ -119,7 +142,14 @@ Hide EFI and external from boot menu. We do not want to show Windows either, as 
 
 - Using iMac20,2 for i9-10850K and higher
 - For setting up the SMBIOS info, I used the built-in SMBIOS generator in OpenCore Auxiliary Tools.
-- Blanked before uploading to Github. *These need to be changed before using the EFI.*
+  - Blanked before uploading to Github. *These need to be changed before using the EFI.*
+
+```
+PlatformInfo > SMBIOS > UpdateSMBIOSMode = Custom
+OpenCore > Kernel > Quirks > CustomSMBIOSGuid = YES
+```
+
+This [boots Windows via OpenCore Custom Mode](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/advanced-topics/multi-boot-options#2.-booting-windows-via-opencore-custom-mode) in a way which makes SMBIOS updates exclusive to macOS only, avoiding a collision with existing Windows activation and custom software. 
 
 ## Create USB Installer & install
 
@@ -149,7 +179,7 @@ mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubuse
 
 ### Debugging & Upgrades
 
-- Initially configured with all recommended debugging settings enabled. Not needed much as there were no major problems and reverted to the release files. 
+- Initially configured with all recommended debugging settings enabled. Used OpenCore debugging to check on monitor resolution with OpenCanopy, which changed with or without CSM.  
 - Upgraded kexts and OpenCore 0.7.7 to 0.7.8 with OCAuxiliaryTools
 
 ![](/Users/christian/developer/git_projects/hackintosh-opencore/Gigabyte-B460-M-Aorus-Pro/images/6a3422173d279b2a7930767db59b008441d57abe.png)
