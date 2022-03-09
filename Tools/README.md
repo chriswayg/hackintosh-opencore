@@ -4,6 +4,6 @@ Autoping is a free menu bar indicator that shows you the current quality of your
 
 ![](images/2022-03-09-22-46-39-image.png)
 
-**autoping 1.02** for Mac is a product of Memset Ltd released 2015-01-22. Compatible with Mac OS X 10.7 or later. Tested up to Monterey.It used to be available on the Apple App Store.
+**autoping 1.02** for Mac is a product of Memset Ltd released 2015-01-22. Compatible with Mac OS X 10.7 or later. Tested up to Monterey. It used to be available on the Apple App Store.
 
 
