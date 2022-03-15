@@ -12,11 +12,11 @@
 
 * [x] Correct OS choices shown in OpenCore Menu/GUI
 
-* [x] Keyboard shortcuts working (see details below in _OpenCore Boot Key Combinations_)
+* [x] Keyboard shortcuts working (see details below in _OpenCore Boot Key Combinations_)  
   
   * CMD+V — verbose mode _(check KeySwap)_
 
-* [x] NVRAM working: [Verifying if you have working NVRAM](https://dortania.github.io/OpenCore-Post-Install/misc/nvram.html#verifying-if-you-have-working-nvram)
+* [x] NVRAM working: [Verifying if you have working NVRAM](https://dortania.github.io/OpenCore-Post-Install/misc/nvram.html#verifying-if-you-have-working-nvram)  
   
   * Apple -> System Preferences -> Startup Disk (uses NVRAM).
 
@@ -46,11 +46,11 @@
   
   #### Graphics Acceleration
 
-* [x] dGPU dedicated GPU
+* [x] dGPU dedicated GPU  
   
   * In _Terminal_: `gfxutil -f GFX0` or check in _IORegistryExplorer_
 
-* [ ] iGPU internal GPU
+* [ ] iGPU internal GPU  
   
   * In _Terminal_: `gfxutil -f IGPU` or check in _IORegistryExplorer_
 
@@ -58,17 +58,19 @@
   
   * Check for transparent menu bar and fast smooth UI.
 
-* [x] VDA _(Video Decode Acceleration framework)_
+* [x] VDA _(Video Decode Acceleration framework)_  
   
   * _Hackintool -> System -> System -> VDA Decoder_ (should show '_fully supported_')
 
-* [x] Metal
+* [x] Metal  
   
   * _System Information_ -> Graphics/Displays -> Metal: Supported
   * _GLView_
   * _Geekbench_ -> Compute -> Metal
 
-* [ ] Intel Quick Sync, H.264 & HEVC (H.265) hardware decoding/encoding
+* [x] Intel Quick Sync, H.264 & HEVC (H.265) hardware decoding/encoding
+  
+  - *Intel Power Gadget > GFX* (green line) check while exporting H.264 from FCPX
 
 * [ ] dGPU hardware acceleration
   
@@ -85,24 +87,20 @@
 * [x] Audio quality
   
   #### Sleep & Power
-
-* [ ] **Manual Sleep** (Apple menu -> Sleep)
-
-* [ ] Auto Sleep (_System Preferences_ -> Energy Saver)
-
-* [ ] Wake by keyboard
-
-* [ ] Wake by mouse/trackpad
-
-* [ ] Sleep by [Press and hold power button for 1.5 seconds](https://support.apple.com/en-us/HT201236)
-
-* [ ] Sleep/Wake (using both `hibernatemode` 0 and 25)
-
-* [x] Shutdown (from Apple menu)
-
-* [x] Restart (from Apple menu)
   
-  #### CPU
+  Use *Energy Saver > Restore Defaults*
+- [x] Check Hibernate Mode: `pmset -g | grep hibernatemode`
+
+- [x] Shutdown (from Apple menu)
+
+- [x] Restart (from Apple menu)
+* [x] Manual Sleep (Apple menu -> Sleep)
+- [x] [Press and hold power button for 1.5 seconds](https://support.apple.com/en-us/HT201236), select Sleep
+* [x] Auto Sleep (_System Preferences_ -> Energy Saver)
+
+* [x] Wake by keyboard
+
+* [x] Wake by mouse/trackpad
 
 * [ ] CPU Power Management [Optimizing Power Management](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#optimizing-power-management)
   
@@ -124,13 +122,11 @@
   
   #### Sensors
   
-  In HWMonitorSMC2
+    In HWMonitorSMC2
 
 * [x] CPU
 
-* [x] **GPU**
-
-* [ ] ~~Battery~~
+* [x] GPU
 
 * [x] SSD, NVMe, HD
 
@@ -138,7 +134,7 @@
   
   #### Keyboard
 
-* [x] Option/Command correctly mapped in macOS
+* [x] Option/Command correctly mapped in macOS 
   
   * For PC Keyboards swap in: _System Preferences_ -> Keyboard -> Modifier Keys
   * Press space bar and the key left of the Spacebar. This should show Spotlight
@@ -163,14 +159,6 @@
 * [x] Camera (Photo Booth, Facetime, Zoom)
 
 * [ ] ~~Fingerprint reader~~
-  
-  #### ThunderBolt
-
-* [ ] ~~File transfer~~
-
-* [ ] ~~Display~~
-  
-  #### Ethernet
 
 * [x] Gigabit LAN (_System Preferences_-> Network -> Ethernet -> Advanced -> Hardware -> Speed should be 1000baseT)
 
@@ -186,7 +174,7 @@
 
 * [x] AirDrop (test with iDevices)
 
-* [x] AirPlay to Mac (macOS Monterey or later, test with iOS 14 or later devices)
+* [x] AirPlay to Mac (macOS Monterey or later, test with iOS 14 or later devices)  
   
   * tap the AirPlay icon on your Apple device to share videos to your Hackintosh
 
