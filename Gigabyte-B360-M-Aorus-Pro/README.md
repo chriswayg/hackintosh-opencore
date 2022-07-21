@@ -1,10 +1,10 @@
 # Hackintosh on Gigabyte B360 M Aorus Pro
 
-![](Monterey_Hackintosh_B360M_Screenshot.png)
+![](images/Monterey_Hackintosh_B360M_Screenshot.png)
 
 ## Installed Monterey
 
-- Followed the [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) (Guide updated to 0.7.5 at the time and referenced the OpenCore `Configuration.pdf` for version 0.7.7).
+- Installed as described in the [OpenCore Visual Beginners Guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/step-by-step/readme) based on [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) 
 - Relevant options chosen based on the applicable hardware are mostly noted below.
 
 ### Specs
@@ -13,12 +13,14 @@
 * MB: Gigabyte B360 M Aorus Pro
 * RAM: 16GB HyperX Fury 3200MHz DDR4
 * SSD: Kingston 480GB A400 SATA 2.5"
+* Boot NVMe: WD Blue SN570 500GB
+* Data SSD: Kingston 480GB A400 SATA 2.5"
 * GPU: Sapphire Radeon Toxic R9 280X with dual 1080p monitors
 * Ethernet: Intel I219-V
 * WIFI: Fenvi FV-T919 (Broadcom BCM94360CD)
 * Audio: Realtek ALC892
-* OS: Monterey 12.1 updated to 12.2
-* OpenCore 0.7.7
+* OS: initially Monterey 12.1 upgraded to 12.5
+* OpenCore 0.8.2
 
 ### Working
 
@@ -26,26 +28,57 @@
 - Messages, iCloud
 - All USB2 & USB3 ports
 - Sleep
-- Upgrading to Monterey 12.2 worked smoothly
+- more details see Checklist
 
 ## BIOS settings
 
-### Disable
+*Hackintosh relevant settings in italics.*
 
-- [x] Fast Boot
-- [x] Secure Boot
-- [x] Serial/COM Port
-- [x] VT-d (can be enabled if you set DisableIoMapper to YES)
-- [x] CSM
-- [ ] CFG Lock (not available in BIOS, must enable `AppleXcpmCfgLock`)
+**Reset the BIOS to default values**
 
-### Enable
+- Save & Exit -> Load Optimized Defaults
 
-- [x] Above 4G decoding
-- [x] EHCI/XHCI Hand-off
-- [x] OS type: Windows 8.1/10 UEFI Mode
-- [ ] DVMT Pre-Allocated(iGPU Memory): 64MB
-- [x] SATA Mode: AHCI
+(take out BIOS battery or reset jumper, if unable to boot into BIOS)
+
+**Minimum**
+
+Absolute Minimum to boot into macOS Monterey 
+
+- Peripherals -> USB Configuration -> *XHCI Hand-off: Enabled*
+
+**XMP**
+
+XMP Memory Settings
+Kingston HyperX Fury 2 x 8GB, 3200MHz, HX432C16FB3AK2/16
+
+- M.I.T -> Advanced Memory Settings -> XMP: Profile2 (uses DDR4-2667 CL15-17-17 @1.35V)
+
+**BIOS**
+
+- Full Screen LOGO Show: Disabled
+- *Fast Boot: Disabled* (default)
+- *Windows 8/10 Features: Other OS*
+- *CSM Support: Enabled* (default)
+  - will fail to boot into BIOS, if set to Disabled (5 beeps)
+  - probably due to an issue with my GPU vBIOS
+
+**Peripherials**
+
+- Initial Display Output: PCIe 1 Slot (default)
+- *Super IO Configuration -> Serial Port: Disabled*
+- SATA And RST Configuration -> *SATA Mode Selection: AHCI* (default)
+- *Software Guard Extensions (SGX): Disabled*
+
+**Chipset**
+
+- *VT-d: Enabled* (default) 
+  - Set `DisableIoMapper` to YES in Config.plist
+- *Internal Graphics: Enabled*
+- *DVMT Pre-Allocated: 64M* (default)
+- *Above 4G Decoding: Disabled* (default)
+  - optionally add `npci=0x2000` to `boot-args` (macOS actually boots without it)
+  - If Enabled, it starts with a very slow boot process and eventually fails to boot (possibly due to an issue with my GPU vBIOS)
+- Wake on LAN Enable: Disabled
 
 ## Create EFI using OpenCore Auxiliary Tools
 
@@ -58,7 +91,7 @@ Used [GitHub: OpenCore Auxiliary Tools (OCAT)](https://github.com/ic005k/QtOpenC
 
 ### NVRAM
 
-- `boot-args -v debug=0x100 debug=0x100 alcid=1` for debugging and audio
+- `boot-args alcid=1` for audio
 
 ### Device Properties
 
@@ -82,13 +115,6 @@ Hide EFI and external in boot menu
 - For setting up the SMBIOS info, I used the built-in SMBIOS generator in OCAT, (instead of using the *GenSMBIOS* application).
 - Click *Generate* once (near the SystemProductName field)
 
-### UEFI - APFS
-
-For multi-booting with Mojave
-
-- `MinDate -1`
-- `MinVersion -1`
-
 ## Create USB Installer & install
 
 - Download latest Monterey (requires python):
@@ -101,64 +127,12 @@ mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubuse
 
 ## Post-install
 
-### Map USB Ports using USBMap
+### Map USB Ports using USBToolBox
 
-Python script for mapping USB ports in macOS and creating a custom injector kext.
+- Working USB Config as shown in Hackintool
 
-[GitHub - corpnewt/USBMap: Python script for mapping USB ports in macOS and creating a custom injector kext.](https://github.com/corpnewt/USBMap)
-
-- Working USB Config:
-
-```
-######################################################
-# Discover USB Ports
-######################################################
------ XHC@14 Controller -----
-
-1. HS03 | AppleUSB20XHCIPort |  3 (03000000) | 14100000 | Type 0
-   GigaFrontRight_asUSB2
-2. HS04 | AppleUSB20XHCIPort |  4 (04000000) | 14200000 | Type 0
-   GigaFrontLeft_asUSB2
-3. HS05 | AppleUSB20XHCIPort |  5 (05000000) | 14300000 | Type 0
-   RightLowUSB3_asUSB2
-4. HS06 | AppleUSB20XHCIPort |  6 (06000000) | 14400000 | Type 0
-   RightUpUSB3_asUSB2
-5. HS07 | AppleUSB20XHCIPort |  7 (07000000) | 14500000 | Type 0
-   UpLeftUSB2
-6. HS08 | AppleUSB20XHCIPort |  8 (08000000) | 14600000 | Type 0
-   LowLeftUSB2
-   - USB Receiver
-7. HS09 | AppleUSB20XHCIPort |  9 (09000000) | 14700000 | Type 0
-   FrontRight_USB2
-8. HS10 | AppleUSB20XHCIPort | 10 (0a000000) | 14800000 | Type 0
-   FrontLeft_USB2
-   - USB Combo Keyboard
-9. HS14 | AppleUSB20XHCIPort | 14 (0e000000) | 14900000 | Type 255
-   InternalBT_USB2
-   - BRCM20702 Hub
-     - AppleUSB20InternalHub
-       - Bluetooth USB Host Controller
-         - BroadcomBluetoothHostControllerUSBTransport
-10. SS01 | AppleUSB30XHCIPort | 17 (11000000) | 14a00000 | Type 3
-   UpMiddleUSB3.1
-11. SS02 | AppleUSB30XHCIPort | 18 (12000000) | 14b00000 | Type 9
-   LowMiddleUSB-C
-12. SS03 | AppleUSB30XHCIPort | 19 (13000000) | 14c00000 | Type 3
-   FrontRight_USB3
-13. SS04 | AppleUSB30XHCIPort | 20 (14000000) | 14d00000 | Type 3
-   FrontLeft_USB3
-14. SS05 | AppleUSB30XHCIPort | 21 (15000000) | 14e00000 | Type 3
-   LowRightUSB3
-15. SS06 | AppleUSB30XHCIPort | 22 (16000000) | 14f00000 | Type 3
-   UpRightUSB3
-```
-
-- Added `USBMap.kext`
+![USB_Mapping.png](images/USB_Mapping.png)
 
 ### Debugging
 
 - Initially configured with all recommended debugging settings enabled, which were lowered after all is working.
-
-### Multi-Boot
-
-- This configuration also successfully boots my Mojave 10.14.6 installation using the previously used serial for AppleID consistency.
