@@ -42,7 +42,7 @@
 
 * [x] Refresh rates
 
-* [ ] Multimonitor displays
+* [x] Multimonitor displays
   
   #### Graphics Acceleration
 
