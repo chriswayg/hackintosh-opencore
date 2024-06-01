@@ -2,7 +2,7 @@
 
 ![](images/Monterey_Hackintosh_B360M_Screenshot.png)
 
-## Installed Monterey
+## Installed Monterey, updated to Ventura
 
 - Installed as described in the [OpenCore Visual Beginners Guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/step-by-step/readme) based on [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) 
 - Relevant options chosen based on the applicable hardware are mostly noted below.
@@ -136,3 +136,59 @@ mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubuse
 ### Debugging
 
 - Initially configured with all recommended debugging settings enabled, which were lowered after all is working.
+
+## Upgraded to Ventura
+
+- Upgraded OpenCore to 1.0.0 and upgraded kexts
+- Downloaded Ventura via OCLP and followed the normal macOS upgrade
+
+At first I thought that my upgrade to Ventura had gone smoothly, until I noticed the window closing animation being very sluggish. Checking with Hackintool, I saw Quartz Extreme (QE/CI) inactive and Metal unsupported. After finding out that Ventura had dropped support for AMD's GCN 1-3 (7000 - R9 series) GPUs, I investigated the process for making my R9 280X work using OCLP.
+
+Modifying the system with OCLP Requires SIP, Apple Secure Boot and AMFI to be disabled so there are some compromises in terms of security.
+
+### Prepare the System
+
+Initially the following changes are required in the `config.plist` :
+
+* In the *NVRAM* section `boot-args` add temporarily:
+   * `amfi_get_out_of_my_way=0x1 -no-compat-check`
+* Also SIP needs to be disabled with a `csr-active-config`setting of
+   * `03080000`
+
+* Additionally in *Misc - Security* set `SecureBootModel` to
+   * `Disabled`
+* *Notes*:
+   * `-no-compat-check` was probably not required
+   * `amfi_get_out_of_my_way=0x1`disables Apple Mobile File Integrity validation. Required for applying Root Patches with OCLP. It is ONLY needed for re-applying root patches with OCLP after System Updates.
+
+Reboot the system.
+
+### Patch with OCLP
+
+Launch [OCLP](https://dortania.github.io/OpenCore-Legacy-Patcher/) and click on *Post-Install-Root-Patch*
+
+* if you have one of the applicable graphics cards, it will show it as an available patch for your system.
+* Start the patching
+* Reboot to check that everything is working. [Hackintool](https://github.com/benbaker76/Hackintool/releases) should show Quartz Extreme (QE/CI) as active.
+* For me disabling AMFI strangely caused Firefox to hang upon launch. Disabling AMFI is not needed any more for booting, therefore follow the next steps.
+
+### Add AMFIPass.kext
+
+Download [https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.0-RELEASE.zip](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.0-RELEASE.zip) (or newer) and add it to your OpenCore EFI as well as your config.plist
+
+With the AMFIPass kext loaded `amfi_get_out_of_my_way=0x1` is no longer required for booting.
+
+Therefore make the following changes in your `config.plist` :
+
+* In the *NVRAM* section `boot-args` revert to your previous settings by removing:
+   * `amfi_get_out_of_my_way=0x1 -no-compat-check`
+
+### Future System Updates
+
+So far everything is working for me as expected. Additional settings might be required as well, based on 5T33Z0. 
+
+- `amfi_get_out_of_my_way=0x1` to disable AMFI validation will be needed again for re-applying root patches with OCLP after System Updates.
+
+***References/Sources for OCLP on Hackintosh:***  
+*-* [*OCLP Documentation*](https://dortania.github.io/OpenCore-Legacy-Patcher/)  
+*- Helpful notes by* [*5T33Z0*](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/README.md) *about using OCLP*
