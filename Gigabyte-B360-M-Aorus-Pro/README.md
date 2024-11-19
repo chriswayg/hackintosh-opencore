@@ -2,7 +2,7 @@
 
 ![](images/Monterey_Hackintosh_B360M_Screenshot.png)
 
-## Installed Monterey, updated to Ventura
+## Installed Monterey, updated to Ventura, then Sequoia
 
 - Installed as described in the [OpenCore Visual Beginners Guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/step-by-step/readme) based on [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) 
 - Relevant options chosen based on the applicable hardware are mostly noted below.
@@ -117,13 +117,7 @@ Hide EFI and external in boot menu
 
 ## Create USB Installer & install
 
-- Download latest Monterey (requires python):
-
-```
-mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubusercontent.com/munki/macadmin-scripts/main/installinstallmacos.py > installinstallmacos.py && sudo python installinstallmacos.py
-```
-
-- Use [GitHub - TINU: The open tool to create bootable macOS installers.](https://github.com/ITzTravelInTime/TINU) as a GUI for the `createinstallmedia` command
+- Download latest macOS
 
 ## Post-install
 
@@ -137,9 +131,10 @@ mkdir -p ~/macOS-installer && cd ~/macOS-installer && curl https://raw.githubuse
 
 - Initially configured with all recommended debugging settings enabled, which were lowered after all is working.
 
-## Upgraded to Ventura
+## Upgraded to Ventura 
+**(then upgraded to Sequoia which follows the same steps)**
 
-- Upgraded OpenCore to 1.0.0 and upgraded kexts
+- Upgraded to latest OpenCore (1.0.+) and upgraded kexts
 - Downloaded Ventura via OCLP and followed the normal macOS upgrade
 
 At first I thought that my upgrade to Ventura had gone smoothly, until I noticed the window closing animation being very sluggish. Checking with Hackintool, I saw Quartz Extreme (QE/CI) inactive and Metal unsupported. After finding out that Ventura had dropped support for AMD's GCN 1-3 (7000 - R9 series) GPUs, I investigated the process for making my R9 280X work using OCLP.
@@ -151,14 +146,13 @@ Modifying the system with OCLP Requires SIP, Apple Secure Boot and AMFI to be di
 Initially the following changes are required in the `config.plist` :
 
 * In the *NVRAM* section `boot-args` add temporarily:
-   * `amfi_get_out_of_my_way=0x1 -no-compat-check`
+   * `amfi_get_out_of_my_way=0x1`
 * Also SIP needs to be disabled with a `csr-active-config`setting of
    * `03080000`
 
 * Additionally in *Misc - Security* set `SecureBootModel` to
    * `Disabled`
 * *Notes*:
-   * `-no-compat-check` was probably not required
    * `amfi_get_out_of_my_way=0x1`disables Apple Mobile File Integrity validation. Required for applying Root Patches with OCLP. It is ONLY needed for re-applying root patches with OCLP after System Updates.
 
 Reboot the system.
@@ -174,20 +168,21 @@ Launch [OCLP](https://dortania.github.io/OpenCore-Legacy-Patcher/) and click on 
 
 ### Add AMFIPass.kext
 
-Download [https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.0-RELEASE.zip](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.0-RELEASE.zip) (or newer) and add it to your OpenCore EFI as well as your config.plist
+Check https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera and download AMFIPass.kext (use latest!) and add it to your OpenCore EFI as well as your config.plist
 
 With the AMFIPass kext loaded `amfi_get_out_of_my_way=0x1` is no longer required for booting.
 
 Therefore make the following changes in your `config.plist` :
 
 * In the *NVRAM* section `boot-args` revert to your previous settings by removing:
-   * `amfi_get_out_of_my_way=0x1 -no-compat-check`
+   * `amfi_get_out_of_my_way=0x1
 
 ### Future System Updates
 
 So far everything is working for me as expected. Additional settings might be required as well, based on 5T33Z0. 
 
 - `amfi_get_out_of_my_way=0x1` to disable AMFI validation will be needed again for re-applying root patches with OCLP after System Updates.
+- `AMFIPass.kext` needs to be updated when upgrading to Sequoia and also when upgrading OpenCore. It needs to be in synch with the other updated kexts, otherwise the GPU driver may not load successfully!
 
 ***References/Sources for OCLP on Hackintosh:***  
 *-* [*OCLP Documentation*](https://dortania.github.io/OpenCore-Legacy-Patcher/)  
