@@ -1,6 +1,6 @@
 # Hackintosh on Gigabyte B360 M Aorus Pro
 
-![](images/Monterey_Hackintosh_B360M_Screenshot.png)
+![](images/Sequoia_Hackintosh_B360M_Screenshot.png)
 
 ## Installed Monterey, updated to Ventura, then Sequoia
 
@@ -131,7 +131,8 @@ Hide EFI and external in boot menu
 
 - Initially configured with all recommended debugging settings enabled, which were lowered after all is working.
 
-## Upgraded to Ventura 
+## Upgraded to Ventura
+
 **(then upgraded to Sequoia which follows the same steps)**
 
 - Upgraded to latest OpenCore (1.0.+) and upgraded kexts
@@ -146,14 +147,20 @@ Modifying the system with OCLP Requires SIP, Apple Secure Boot and AMFI to be di
 Initially the following changes are required in the `config.plist` :
 
 * In the *NVRAM* section `boot-args` add temporarily:
-   * `amfi_get_out_of_my_way=0x1`
+  
+  * `amfi_get_out_of_my_way=0x1`
+
 * Also SIP needs to be disabled with a `csr-active-config`setting of
-   * `03080000`
+  
+  * `03080000`
 
 * Additionally in *Misc - Security* set `SecureBootModel` to
-   * `Disabled`
+  
+  * `Disabled`
+
 * *Notes*:
-   * `amfi_get_out_of_my_way=0x1`disables Apple Mobile File Integrity validation. Required for applying Root Patches with OCLP. It is ONLY needed for re-applying root patches with OCLP after System Updates.
+  
+  * `amfi_get_out_of_my_way=0x1`disables Apple Mobile File Integrity validation. Required for applying Root Patches with OCLP. It is ONLY needed for re-applying root patches with OCLP after System Updates.
 
 Reboot the system.
 
@@ -175,7 +182,7 @@ With the AMFIPass kext loaded `amfi_get_out_of_my_way=0x1` is no longer required
 Therefore make the following changes in your `config.plist` :
 
 * In the *NVRAM* section `boot-args` revert to your previous settings by removing:
-   * `amfi_get_out_of_my_way=0x1
+  * `amfi_get_out_of_my_way=0x1
 
 ### Future System Updates
 
