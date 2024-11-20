@@ -24,13 +24,11 @@
 ### Working
 
 - Audio, Video, Ethernet, NVRAM, Bluetooth
+- Wifi
 - Messages, iCloud
 - All USB2 & USB3 ports
 - Sleep
 - more details see Checklist
-
-### WIP
-- Wifi (stopped working in Sequoia, see below)
 
 ## BIOS settings
 
@@ -196,11 +194,12 @@ So far everything is working for me as expected. Additional settings might be re
 - `amfi_get_out_of_my_way=0x1` to disable AMFI validation will be needed again for re-applying root patches with OCLP after System Updates.
 - `AMFIPass.kext` needs to be updated when upgrading to Sequoia and also when upgrading OpenCore. It needs to be in synch with the other updated kexts, otherwise the GPU driver may not load successfully!
 
-### Broadcom Wifi 
-I am currently attemting to get my Broadcom Fenvi T919 to work again under macOS 15.1 Sequoia.
+### Broadcom Wifi
 
-See the steps I tokk here:
-https://github.com/chriswayg/macOS-Sequoia-Broadcom-Wifi
+I was able to get my Broadcom Fenvi T919 to work again under macOS 15.1 Sequoia.
+
+My Guide can be found here:
+https://chriswayg.gitbook.io/opencore-visual-beginners-guide/advanced-topics/broadcom-wifi-on-macos-sequoia
 
 ***References/Sources for OCLP on Hackintosh:***  
 *-* [*OCLP Documentation*](https://dortania.github.io/OpenCore-Legacy-Patcher/)  

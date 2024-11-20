@@ -32,7 +32,7 @@
   
   #### Display
 
-* [X] Display via HDMI
+* [x] Display via HDMI
 
 * [ ] Display via DisplayPort
 
@@ -72,7 +72,7 @@
   
   - *Intel Power Gadget > GFX* (green line) check while exporting H.264 from FCPX
 
-* [X] dGPU hardware acceleration
+* [x] dGPU hardware acceleration
   
   #### Audio
 
@@ -168,7 +168,7 @@
   
   #### Wifi & Bluetooth
 
-* [ ] ***Wifi*** transmission speed (Option Click -> Wifi menu bar icon -> check Tx Rate)
+* [x] Wifi function and transmission speed (Option Click -> Wifi menu bar icon -> check Tx Rate)
 
 * [ ] Bluetooth devices (trackpad, mouse, keyboard, headset)
 
