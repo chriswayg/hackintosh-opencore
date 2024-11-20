@@ -2,7 +2,7 @@
 
 ## What's working?
 
-**Working:** check-mark. **Not Working:** bold.
+**Working:** check-mark. **Not Working:** bold+italic.
 
 **Not Tested:** leave as-is. **Not applicable:** Strikethrough or delete.
 
@@ -32,7 +32,7 @@
   
   #### Display
 
-* [ ] Display via HDMI
+* [X] Display via HDMI
 
 * [ ] Display via DisplayPort
 
@@ -50,7 +50,7 @@
   
   * In _Terminal_: `gfxutil -f GFX0` or check in _IORegistryExplorer_
 
-* [ ] iGPU internal GPU  
+* [ ] ~~iGPU internal GPU~~  
   
   * In _Terminal_: `gfxutil -f IGPU` or check in _IORegistryExplorer_
 
@@ -72,7 +72,7 @@
   
   - *Intel Power Gadget > GFX* (green line) check while exporting H.264 from FCPX
 
-* [ ] dGPU hardware acceleration
+* [X] dGPU hardware acceleration
   
   #### Audio
 
@@ -168,7 +168,7 @@
   
   #### Wifi & Bluetooth
 
-* [x] Wifi transmission speed (Option Click -> Wifi menu bar icon -> check Tx Rate)
+* [ ] ***Wifi*** transmission speed (Option Click -> Wifi menu bar icon -> check Tx Rate)
 
 * [ ] Bluetooth devices (trackpad, mouse, keyboard, headset)
 
@@ -186,4 +186,4 @@
 
 * [x] iMessage, FaceTime, App Store, iTunes Store
 
-* [ ] **DRM support** (iTunes Movies, Apple TV+, Amazon Prime and Netflix, and others. Test in Safari. Requires Polaris or newer GPU.)
+* [ ] ***DRM support*** (iTunes Movies, Apple TV+, Amazon Prime and Netflix, and others. Test in Safari. Requires Polaris or newer GPU.)
