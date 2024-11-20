@@ -12,7 +12,6 @@
 * CPU: Intel Core i5-9400 CPU @ 2.90GHz 6-Core (Coffee Lake)
 * MB: Gigabyte B360 M Aorus Pro
 * RAM: 16GB HyperX Fury 3200MHz DDR4
-* SSD: Kingston 480GB A400 SATA 2.5"
 * Boot NVMe: WD Blue SN570 500GB
 * Data SSD: Kingston 480GB A400 SATA 2.5"
 * GPU: Sapphire Radeon Toxic R9 280X with dual 1080p monitors
