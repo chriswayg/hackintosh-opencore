@@ -1,6 +1,6 @@
 # Hackintosh on Gigabyte B360 M Aorus Pro
 
-![](images/Sequoia_Hackintosh_B360M_Screenshot.png)
+![](images/Sequoia_Hackintosh_B360M_Screenshot.jpg)
 
 ## Installed Monterey, updated to Ventura, then Sequoia
 
