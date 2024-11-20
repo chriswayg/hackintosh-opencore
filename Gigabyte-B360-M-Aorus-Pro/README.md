@@ -19,16 +19,19 @@
 * Ethernet: Intel I219-V
 * WIFI: Fenvi FV-T919 (Broadcom BCM94360CD)
 * Audio: Realtek ALC892
-* OS: initially Monterey 12.1 upgraded to 12.5
-* OpenCore 0.8.2
+* OS: initially Monterey 12.1 upgraded to 12.5, then Ventura, currently Sequoia 15.1
+* Initially OpenCore 0.8.2, now 1.0.2
 
 ### Working
 
-- Audio, Video, Ethernet, NVRAM, Wifi, Bluetooth
+- Audio, Video, Ethernet, NVRAM, Bluetooth
 - Messages, iCloud
 - All USB2 & USB3 ports
 - Sleep
 - more details see Checklist
+
+### WIP
+- Wifi (stopped working in Sequoia, see below)
 
 ## BIOS settings
 
@@ -113,7 +116,8 @@ Hide EFI and external in boot menu
 
 - Using iMac19,1 for Mojave and newer
 - For setting up the SMBIOS info, I used the built-in SMBIOS generator in OCAT, (instead of using the *GenSMBIOS* application).
-- Click *Generate* once (near the SystemProductName field)
+- Click *Generate* once (near the SystemProductName field).
+- (The SMBIOS info has been re-generated before uploading to Github to protect my AppleID.)
 
 ## Create USB Installer & install
 
@@ -161,6 +165,8 @@ Initially the following changes are required in the `config.plist` :
 * *Notes*:
   
   * `amfi_get_out_of_my_way=0x1`disables Apple Mobile File Integrity validation. Required for applying Root Patches with OCLP. It is ONLY needed for re-applying root patches with OCLP after System Updates.
+  * Firefox will not boot when `amfi_get_out_of_my_way=0x1` is active
+  * Currently it seems that AMFIPass.kext alone is sufficient for re-applying root patches with OCLP after System Updates. Therefore `amfi_get_out_of_my_way=0x1` may not be needed any more.
 
 Reboot the system.
 
@@ -190,6 +196,12 @@ So far everything is working for me as expected. Additional settings might be re
 
 - `amfi_get_out_of_my_way=0x1` to disable AMFI validation will be needed again for re-applying root patches with OCLP after System Updates.
 - `AMFIPass.kext` needs to be updated when upgrading to Sequoia and also when upgrading OpenCore. It needs to be in synch with the other updated kexts, otherwise the GPU driver may not load successfully!
+
+### Broadcom Wifi 
+I am currently attemting to get my Broadcom Fenvi T919 to work again under macOS 15.1 Sequoia.
+
+See the steps I tokk here:
+https://github.com/chriswayg/macOS-Sequoia-Broadcom-Wifi
 
 ***References/Sources for OCLP on Hackintosh:***  
 *-* [*OCLP Documentation*](https://dortania.github.io/OpenCore-Legacy-Patcher/)  
