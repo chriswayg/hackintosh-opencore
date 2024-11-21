@@ -26,7 +26,7 @@
 
 * [x] Windows 10 and/or Linux Multi-Boot
 
-* [ ] Recovery (macOS) Boot
+* [x] Recovery (macOS) Boot
 
 * [x] Serial Number: ensure that it does not exist elsewhere, [Check Apple Coverage](https://checkcoverage.apple.com/us/en/) _(and not uploaded to Github)_
   
@@ -170,7 +170,7 @@
 
 * [x] Wifi function and transmission speed (Option Click -> Wifi menu bar icon -> check Tx Rate)
 
-* [ ] Bluetooth devices (trackpad, mouse, keyboard, headset)
+* [x] Bluetooth devices (trackpad, mouse, keyboard, headset)
 
 * [x] AirDrop (test with iDevices)
 
@@ -178,7 +178,7 @@
   
   * tap the AirPlay icon on your Apple device to share videos to your Hackintosh
 
-* [ ] Handoff [System requirements for Continuity](https://support.apple.com/en-us/HT204689) and [Use Continuity](https://support.apple.com/en-us/HT204681) which requires macOS Catalina & iOS 13+
+* [x] Handoff [System requirements for Continuity](https://support.apple.com/en-us/HT204689) and [Use Continuity](https://support.apple.com/en-us/HT204681) which requires macOS Catalina & iOS 13+
 
 * [ ] [Sidecar](https://support.apple.com/en-us/HT210380) requires macOS Catalina or later and a compatible iPad using iPadOS 13 or later.
   
