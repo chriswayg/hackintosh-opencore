@@ -7,7 +7,7 @@
 + MB: GA-EP45-UD3L | CPU: Core 2 Quad Q9400 | GPU: Asus GeForce GTX 660Ti | RAM: 8GB G.SKILL 1333MHz | HD: 3TB ST3000DM001 | OS: High Sierra
 
 **Active**
-+ MB: GA-Z87X-OC Force | CPU: Core i7-4770K | GPU: AMD Radeon 7770| RAM: 32GB G.SKILL 1600MHz | SSD: Crucial M550 256GB | OS: Ventura
++ MB: GA-Z87X-OC Force | CPU: Core i7-4770K | GPU: AMD Radeon HD 7770 | RAM: 32GB G.SKILL 1600MHz | SSD: Crucial M550 256GB | OS: Ventura
 + MB: Gigabyte B360 M Aorus Pro | CPU: Core i5-9400 | GPU: Sapphire Radeon R9 280X | RAM: 16GB HyperX 3200MHz | SSD: Kingston 480GB | WIFI: Fenvi FV-T919 | OS: Sequoia
 + MB: Gigabyte B460 M Aorus Pro | CPU: Core i9-10900 | GPU: AMD RX 6600 XT | RAM: 16GB Corsair DDR4 | SSD: 250GB SATA | OS: Monterey | Dualboot Windows
 
@@ -32,6 +32,3 @@ The EFI folder and config.plist are just provided for reference for those who ha
 ### SMBIOS on Github
 
 In the `config.plist` my personal *"Serial Number"*, *"Board Serial Number"* and *"SmUUID"* which are unique SMBIOS credentials have been randomized before uploading, because they should not be revealed in public. They are unique for each system and are mandatory for activation of iMessage and FaceTime.
-
-### Previously used Tools
-- [PlistEdit Pro – Advanced Mac plist editor](https://www.fatcatsoftware.com/plisteditpro/) - Nice, but commercial.
