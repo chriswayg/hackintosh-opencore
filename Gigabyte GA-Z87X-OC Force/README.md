@@ -1,6 +1,6 @@
 # Hackintosh on Gigabyte GA-Z87X-OC Force
 
-## OpenCore: Z87, i7-4770K, HD 7770 running Ventura
+## OpenCore: Z87, i7-4770K, HD 7770, running Ventura
 
 Generally followed the [Opencore Vanilla Desktop Guide](https://github.com/khronokernel/Opencore-Vanilla-Desktop-Guide/tree/0.5.6) and the OpenCore Configuration.pdf - The parts I configured different from the Guide are mostly noted below.
 
@@ -40,11 +40,7 @@ Generally followed the [Opencore Vanilla Desktop Guide](https://github.com/khron
     - [x] EHCI/XHCI Hand-off
     - [x] OS type: other OS (otherwise no second monitor)
 
-## Mount EFI
-
-Used OCAuxiliary Tools to mount EFI and edit config.plist
-
-## Edit config.plist
+## config.plist
 
 ### Device Properties
 
